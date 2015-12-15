@@ -25,6 +25,7 @@ class Charla(models.Model):
 	estado = models.CharField(max_length=255, choices=ESTADO_CHOICES, default="posible")	
 	fecha_taller = models.DateField(blank=True,null=True)
 	votos = models.PositiveIntegerField(default=0)
+	usuario = models.ForeignKey(User)
 
 	class Meta:
 		ordering = ['votos']
