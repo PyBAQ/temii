@@ -3,19 +3,16 @@ from django.views.generic import ListView
 
 from .models import Voto, Charla
 
-class ListarEstadoView(ListView):
-	model = Charla
-	template_name = 'index.html'
-	estado = 'posible'
-	context_object_name = 'charlas'
 
-	def get_queryset(self):
-	    queryset = super(ListarEstadoView, self).get_queryset()
-	    return queryset.filter(estado = self.estado)
+class ListarEstadoView(ListView):
+	context_object_name = 'charlas'
+	queryset = Charla.posibles.all()
+	template_name = 'index.html'
 
 
 class ListarAgendadoView(ListarEstadoView):
-	estado = 'agendado'
+	queryset = Charla.agendadas.all()
+
 
 class ListarFinalizadoView(ListarEstadoView):
-	estado = 'finalizado'
+	queryset = Charla.finalizadas.all()
