@@ -25,16 +25,14 @@
       <a href="{% url 'index' %}" class="brand-logo">Temii</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'index' %}">Todos</a></li>
         <li><a href="{% url 'agendado' %}">Agendados</a></li>
         <li><a href="{% url 'finalizado' %}">Finalizados</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Agendado</a></li>
-        <li><a href="badges.html">Finalizados</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="{% url 'index' %}">Todos</a></li>
+        <li><a href="{% url 'agendado' %}">Agendado</a></li>
+        <li><a href="{% url 'finalizado' %}">Finalizados</a></li>
       </ul>
     </div>
   </nav>
@@ -106,10 +104,9 @@
           <div class="col s12">
             <div class="card-panel grey lighten-4">
               <div class="collection unselect">
-                <a href="#!" class="collection-item active blue lighten-2">Todos</a>
-                <a href="#!" class="collection-item grey-text">Posible</a>
-                <a href="#!" class="collection-item grey-text">Agendado</a>
-                <a href="#!" class="collection-item grey-text">Rechazado</a>
+                <a href="{% url 'index' %}" class="collection-item active blue lighten-2">Todos</a>
+                <a href="{% url 'agendado' %}" class="collection-item grey-text">Agendado</a>
+                <a href="{% url 'finalizado' %}" class="collection-item grey-text">Rechazado</a>
               </div>
             </div>
           </div>
@@ -138,22 +135,16 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        © 2014 Copyright Text
+        © {% now "Y" %} Copyright Text
         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
   </footer>
   <!--Boton Flotante-->
   <div class="fixed-action-btn unselect" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large orange accent-3">
+    <a class="btn-floating btn-large orange accent-3" href="{% url 'registrar_charla' %}">
       <i class="large material-icons">add</i>
     </a>
-    <ul>
-      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul>
   </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
