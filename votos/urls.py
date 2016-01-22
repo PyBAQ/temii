@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^agendado$', ListarAgendadoView.as_view(), name='agendado' ),
     url(r'^finalizado$', ListarFinalizadoView.as_view() ,name='finalizado' ),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^registrar_charla$', RegistrarCharlaView.as_view(), name='registrar_charla'),
+    url(r'^charlas$', ListarEstadoView.as_view() ,name='charlas' ), #toca hacer un menu o algo asi para que esto valga la pena
+    url(r'^charlas/postular$', RegistrarCharlaView.as_view(), name='charlas/postular'),
 ]
