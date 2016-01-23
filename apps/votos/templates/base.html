@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
   {% block estilos %}
         <!--Estilos especificos de cada página-->
@@ -30,14 +31,16 @@
       <a href="{% url 'index' %}" class="brand-logo">Temii</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{% url 'index' %}">Todos</a></li>
-        <li><a href="{% url 'agendado' %}">Agendados</a></li>
-        <li><a href="{% url 'finalizado' %}">Finalizados</a></li>
+        <li><a href="{% url 'index' %}">Inicio</a></li>
+        <li><a href="{% url 'charlas/posibles' %}">Posibles</a></li>
+        <li><a href="{% url 'charlas/agendadas' %}">Agendados</a></li>
+        <li><a href="{% url 'charlas/finalizadas' %}">Finalizadas</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="{% url 'index' %}">Todos</a></li>
-        <li><a href="{% url 'agendado' %}">Agendado</a></li>
-        <li><a href="{% url 'finalizado' %}">Finalizados</a></li>
+        <li><a href="{% url 'index' %}">Inicio</a></li>
+        <li><a href="{% url 'charlas/posibles' %}">Posibles</a></li>
+        <li><a href="{% url 'charlas/agendadas' %}">Agendados</a></li>
+        <li><a href="{% url 'charlas/finalizadas' %}">Finalizadas</a></li>
       </ul>
     </div>
   </nav>
@@ -63,7 +66,7 @@
         <div class="row">
           <div class="col s12">
             <div class="card-panel grey lighten-4 profile">
-              <i class="material-icons circle blue lighten-2"></i>
+              <i class="material-icons circle blue lighten-2">perm_identity</i>
               <span class="truncate">{% if user.is_authenticated %}¡Hola! @{{ user }}{% endif %}</span>
             </div>
           </div>
@@ -84,14 +87,14 @@
         <p class="grey-text">Estado</p>
         <div class="row">
           <div class="col s12">
-            <div class="card-panel grey lighten-4">
+          <div class="card-panel grey lighten-4">
               <div class="collection unselect">
-                <a href="{% url 'index' %}" class="collection-item active blue lighten-2">Todos</a>
-                <a href="{% url 'agendado' %}" class="collection-item grey-text">Agendado</a>
-                <a href="{% url 'finalizado' %}" class="collection-item grey-text">Rechazado</a>
+                <a href="{% url 'charlas/posibles' %}" class="collection-item active blue lighten-2">Todos</a>
+                <a href="{% url 'charlas/agendadas' %}" class="collection-item grey-text">Agendado</a>
+                <a href="{% url 'charlas/finalizadas' %}" class="collection-item grey-text">Rechazado</a>
+              </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>

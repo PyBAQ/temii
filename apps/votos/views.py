@@ -1,14 +1,26 @@
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, TemplateView
 
 from .models import Voto, Charla
-from .forms import RegistrarCharlaForm
+from .forms import PostularCharlaForm
+
+
+class IndexView(ListView):
+    context_object_name = 'index'
+    queryset = Charla.posibles.all()
+    template_name = 'index.html'
+
+    
+class MenuView(TemplateView):
+    context_object_name = 'menu'
+    template_name = 'menu.html'
+
 
 class ListarEstadoView(ListView):
     context_object_name = 'charlas'
     queryset = Charla.posibles.all()
-    template_name = 'index.html'
+    template_name = 'listado_charlas.html'
 
 
 class ListarAgendadoView(ListarEstadoView):
@@ -20,10 +32,10 @@ class ListarFinalizadoView(ListarEstadoView):
 
 
 class RegistrarCharlaView(CreateView):
-    form_class = RegistrarCharlaForm
+    form_class = PostularCharlaForm
     model = Charla
     success_url = reverse_lazy('index')
-    template_name = 'registro_charla.html'
+    template_name = 'postular_charla.html'
 
     def get_form_kwargs(self):
         if self.request.method in ('POST', 'PUT'):
@@ -31,3 +43,4 @@ class RegistrarCharlaView(CreateView):
             self.object.usuario = self.request.user
         kwargs = super(RegistrarCharlaView, self).get_form_kwargs()
         return kwargs
+        

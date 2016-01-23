@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block title %}Temii{% endblock %}
+
+{% block breadcrumb %}
+  <a href="{% url 'menu' %}" class="breadcrumb">Inicio</a>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12">
+      <div class="card-panel grey lighten-4">
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title black-text">Charlas</span>
+        <div class="row">
+            
+            <div class="app-item col s6 m6 l4 center-align">
+                <a class="waves-effect waves-light green-text text-lighten-2" href="{% url 'charlas/agendadas' %}">
+                    <i class="fa fa-3x fa-clock-o "></i>
+                    <h6 style="truncate word-wrap: break-word;">Agendadas</h6>
+                </a>
+            </div>
+            
+            <div class="app-item col s6 m6 l4 center-align">
+                <a class="waves-effect waves-light green-text text-lighten-2" href="{% url 'charlas/finalizadas' %}">
+                    <i class="fa fa-3x fa-check-square-o "></i>
+                    <h6 style="truncate word-wrap: break-word;">Finalizadas</h6>
+                </a>
+            </div>
+            
+            <div class="app-item col s6 m6 l4 center-align">
+                <a class="waves-effect waves-light green-text text-lighten-2" href="{% url 'charlas/posibles' %}">
+                    <i class="fa fa-3x fa-list "></i>
+                    <h6 style="truncate word-wrap: break-word;">Posibles</h6>
+                </a>
+            </div>
+            
+            </div>
+            <div class="row">
+            
+            
+            <div class="app-item col s6 m6 l4 center-align">
+                <a class="waves-effect waves-light green-text text-lighten-2" href="{% url 'charlas/postular' %}">
+                    <i class="fa fa-3x fa-plus "></i>
+                    <h6 style="truncate word-wrap: break-word;">Postular</h6>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</div>
+{% endblock %}

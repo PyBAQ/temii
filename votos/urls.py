@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from apps.votos.views import ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, RegistrarCharlaView
+from apps.votos.views import  IndexView, ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, MenuView, RegistrarCharlaView
 
 urlpatterns = [
-    url(r'^$', ListarEstadoView.as_view() ,name='index' ),
-    url(r'^agendado$', ListarAgendadoView.as_view(), name='agendado' ),
-    url(r'^finalizado$', ListarFinalizadoView.as_view() ,name='finalizado' ),
+    url(r'^$', IndexView.as_view() ,name='index' )
+    ,url(r'^menu$', MenuView.as_view(), name='menu' ),
+    url(r'^charlas/posibles$', ListarAgendadoView.as_view(), name='charlas/posibles' ),
+    url(r'^charlas/agendadas$', ListarAgendadoView.as_view(), name='charlas/agendadas' ),
+    url(r'^charlas/finalizadas$', ListarFinalizadoView.as_view() ,name='charlas/finalizadas' ),
+    url(r'^charlas/postular$', RegistrarCharlaView.as_view(), name='charlas/postular' ),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^charlas$', ListarEstadoView.as_view() ,name='charlas' ), #toca hacer un menu o algo asi para que esto valga la pena
-    url(r'^charlas/postular$', RegistrarCharlaView.as_view(), name='charlas/postular'),
 ]

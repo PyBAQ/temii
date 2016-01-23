@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load widget_tweaks %}
 
 {% block title %}Temii - Postular Charla{% endblock %}
 
 {% block breadcrumb %}
-  <a href="{% url 'charlas' %}" class="breadcrumb">Charlas</a>
+  <a href="{% url 'menu' %}" class="breadcrumb">Inicio</a>
   <a href="{% url 'charlas/postular' %}" class="breadcrumb">Postular</a>
 {% endblock %}
 
@@ -19,9 +20,12 @@
           {% for field in form %}
             <div class="row">
               <div class="input-field col s12">
-                {{ field }}
+                {{field|add_class:"validate"}}
                 <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-                <p class="help-text">{{ field.help_text }} </p>
+                {% if field.help_text %}
+                  <p class="help help-text">{{ field.help_text|safe }}</p>
+                {% endif %}
+                {{ field.errors }}
               </div>
             </div>
           {% endfor %}
