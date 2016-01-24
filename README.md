@@ -1,8 +1,9 @@
 # Temii
 
 [![Join the chat at https://gitter.im/DjangoQuilla/temii](https://badges.gitter.im/DjangoQuilla/temii.svg)](https://gitter.im/DjangoQuilla/temii?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/DjangoQuilla/temii.svg?branch=master)](https://travis-ci.org/DjangoQuilla/temii)
 
-plicación para escoger los futuros temas y talleristas para las charlas de la comunidad Django Barranquilla.
+Aplicación para escoger los futuros temas y talleristas para las charlas de la comunidad Django Barranquilla.
 
 ### Requerimientos
 
