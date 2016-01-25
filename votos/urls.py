@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^finalizado$', ListarFinalizadoView.as_view() ,name='finalizado' ),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^menu$', MenuView.as_view(), name='menu'),
-    url(r'^registra_charla$', RegistrarCharlaView.as_view(), name='registra_charla'),
+    url(r'^registrar_charla$', RegistrarCharlaView.as_view(), name='registra_charla'),
     url(r'^posibles$', ListarEstadoView.as_view() ,name='posibles' ),# en realidad, se va a tener que cambiar el index, asi que de una vez apuntare a este en base
     url(r'^accounts/login/$', auth_views.login),
 ]

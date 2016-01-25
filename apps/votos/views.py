@@ -36,7 +36,7 @@ class RegistrarCharlaView(CreateView):
     form_class = RegistrarCharlaForm
     model = Charla
     success_url = reverse_lazy('index')
-    template_name = 'registra_charla.html'
+    template_name = 'registrar_charla.html'
 
     def get_form_kwargs(self):
         if self.request.method in ('POST', 'PUT'):
