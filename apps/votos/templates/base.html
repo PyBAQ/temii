@@ -32,15 +32,15 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'charlas/posibles' %}">Posibles</a></li>
-        <li><a href="{% url 'charlas/agendadas' %}">Agendados</a></li>
-        <li><a href="{% url 'charlas/finalizadas' %}">Finalizadas</a></li>
+        <li><a href="{% url 'posibles' %}">Posibles</a></li>
+        <li><a href="{% url 'agendado' %}">Agendados</a></li>
+        <li><a href="{% url 'finalizado' %}">Finalizadas</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'charlas/posibles' %}">Posibles</a></li>
-        <li><a href="{% url 'charlas/agendadas' %}">Agendados</a></li>
-        <li><a href="{% url 'charlas/finalizadas' %}">Finalizadas</a></li>
+        <li><a href="{% url 'posibles' %}">Posibles</a></li>
+        <li><a href="{% url 'agendado' %}">Agendados</a></li>
+        <li><a href="{% url 'finalizado' %}">Finalizadas</a></li>
       </ul>
     </div>
   </nav>
@@ -89,9 +89,9 @@
           <div class="col s12">
           <div class="card-panel grey lighten-4">
               <div class="collection unselect">
-                <a href="{% url 'charlas/posibles' %}" class="collection-item active blue lighten-2">Todos</a>
-                <a href="{% url 'charlas/agendadas' %}" class="collection-item grey-text">Agendado</a>
-                <a href="{% url 'charlas/finalizadas' %}" class="collection-item grey-text">Rechazado</a>
+                <a href="{% url 'posibles' %}" class="collection-item active blue lighten-2">Todos</a>
+                <a href="{% url 'agendado' %}" class="collection-item grey-text">Agendado</a>
+                <a href="{% url 'finalizado' %}" class="collection-item grey-text">Rechazado</a>
               </div>
               </div>
             </div>
@@ -127,7 +127,7 @@
   </footer>
   <!--Boton Flotante-->
   <div class="fixed-action-btn unselect" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large orange accent-3" href="{% url 'charlas/postular' %}">
+    <a class="btn-floating btn-large orange accent-3" href="{% url 'registra_charla' %}">
       <i class="large material-icons">add</i>
     </a>
   </div>

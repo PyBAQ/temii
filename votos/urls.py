@@ -15,16 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
-from apps.votos.views import  IndexView, ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, MenuView, RegistrarCharlaView
+from apps.votos.views import IndexView, ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, MenuView, RegistrarCharlaView
 
 urlpatterns = [
-    url(r'^$', IndexView.as_view() ,name='index' )
-    ,url(r'^menu$', MenuView.as_view(), name='menu' ),
-    url(r'^charlas/posibles$', ListarAgendadoView.as_view(), name='charlas/posibles' ),
-    url(r'^charlas/agendadas$', ListarAgendadoView.as_view(), name='charlas/agendadas' ),
-    url(r'^charlas/finalizadas$', ListarFinalizadoView.as_view() ,name='charlas/finalizadas' ),
-    url(r'^charlas/postular$', RegistrarCharlaView.as_view(), name='charlas/postular' ),
+    url(r'^$', IndexView.as_view() ,name='index' ),
+    url(r'^agendado$', ListarAgendadoView.as_view(), name='agendado' ),
+    url(r'^finalizado$', ListarFinalizadoView.as_view() ,name='finalizado' ),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/login/$', auth_views.login),
+    url(r'^menu$', MenuView.as_view(), name='menu'),
+    url(r'^registra_charla$', RegistrarCharlaView.as_view(), name='registra_charla'),
+    url(r'^posibles$', ListarEstadoView.as_view() ,name='posibles' ),# en realidad, se va a tener que cambiar el index, asi que de una vez apuntare a este en base
 ]

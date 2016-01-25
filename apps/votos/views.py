@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, ListView, TemplateView
 
 from .models import Voto, Charla
-from .forms import PostularCharlaForm
+from .forms import RegistrarCharlaForm
 
 
 class IndexView(ListView):
@@ -13,7 +13,6 @@ class IndexView(ListView):
     queryset = Charla.posibles.all()
     template_name = 'index.html'
 
-    
 class MenuView(TemplateView):
     context_object_name = 'menu'
     template_name = 'menu.html'
@@ -34,10 +33,10 @@ class ListarFinalizadoView(ListarEstadoView):
 
 
 class RegistrarCharlaView(CreateView):
-    form_class = PostularCharlaForm
+    form_class = RegistrarCharlaForm
     model = Charla
     success_url = reverse_lazy('index')
-    template_name = 'postular_charla.html'
+    template_name = 'registra_charla.html'
 
     def get_form_kwargs(self):
         if self.request.method in ('POST', 'PUT'):

@@ -3,7 +3,7 @@ from django import forms
 from .models import Charla
 
 
-class PostularCharlaForm(forms.ModelForm):
+class RegistrarCharlaForm(forms.ModelForm):
 	class Meta:
 		model = Charla
 		exclude = ['fecha_taller', 'estado', 'votos', 'usuario']
