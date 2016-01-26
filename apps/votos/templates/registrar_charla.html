@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Temii - Postular Charla{% endblock %}
+
+{% block breadcrumb %}
+  <a href="{% url 'menu' %}" class="breadcrumb">Inicio</a>
+  <a href="{% url 'registrar_charla' %}" class="breadcrumb">Postular</a>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col s12">
+      <div class="card-panel grey lighten-4">
+        <h4 class="card-title grey-text text-darken-4">Postular Tema</h4>
+        <form method="post" class='material-form'>
+          {% csrf_token %}
+          
+          {% for field in form %}
+            <div class="row">
+              <div class="input-field col s12">
+                {{field}}
+                <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                {% if field.help_text %}
+                  <p class="help help-text">{{ field.help_text|safe }}</p>
+                {% endif %}
+                {{ field.errors }}
+              </div>
+            </div>
+          {% endfor %}
+          
+          <input type="submit" value="Postular" class="waves-effect waves-light btn"/>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+      $('.material-form select').material_select();
+      $('.material-form textarea').addClass('materialize-textarea');
+    });
+  </script>
+{% endblock %}
