@@ -9,7 +9,7 @@ from .forms import RegistrarCharlaForm
 
 
 class IndexView(ListView):
-    context_object_name = 'index'
+    context_object_name = 'charlas'
     queryset = Charla.posibles.all()
     template_name = 'index.html'
 
