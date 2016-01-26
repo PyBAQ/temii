@@ -20,12 +20,12 @@ class ViewsTestCase(TestCase):
         self.response_200()
 
     def test_get_registrar_charla(self):
-        self.assertLoginRequired('registra_charla')
+        self.assertLoginRequired('registrar_charla')
 
     def test_post_registrar_charla(self):
         user = UserFactory()
         with self.login(username=user.username, password='1234'):
-            response = self.post('registra_charla',
+            response = self.post('registrar_charla',
                                  data={"titulo": "charla 1",
                                        "descripcion": "descripcion 1"})
             self.response_200(response)
