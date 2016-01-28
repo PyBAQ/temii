@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, TemplateView
 
 from .models import Voto, Charla
 from .forms import RegistrarCharlaForm
@@ -17,6 +17,11 @@ class ListarAgendadoView(ListarEstadoView):
 
 class ListarFinalizadoView(ListarEstadoView):
     queryset = Charla.finalizadas.all()
+
+
+class MenuView(TemplateView):
+    context_object_name = 'menu'
+    template_name = 'menu.html'
 
 
 class RegistrarCharlaView(CreateView):
