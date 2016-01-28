@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from apps.votos.views import ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, RegistrarCharlaView
+from apps.votos.views import IndexView, ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, RegistrarCharlaView
 
 urlpatterns = [
-    url(r'^$', ListarEstadoView.as_view() ,name='index' ),
+    url(r'^$', IndexView.as_view() ,name='index' ),
     url(r'^agendado$', ListarAgendadoView.as_view(), name='agendado' ),
     url(r'^finalizado$', ListarFinalizadoView.as_view() ,name='finalizado' ),
+    url(r'^posibles$', ListarEstadoView.as_view() ,name='posibles' ),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^registrar_charla$', RegistrarCharlaView.as_view(), name='registrar_charla'),
 ]

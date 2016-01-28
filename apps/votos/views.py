@@ -5,18 +5,35 @@ from django.views.generic import CreateView, ListView
 from .models import Voto, Charla
 from .forms import RegistrarCharlaForm
 
-class ListarEstadoView(ListView):
+
+class IndexView(ListView):
     context_object_name = 'charlas'
     queryset = Charla.posibles.all()
     template_name = 'index.html'
 
 
+class ListarEstadoView(ListView):
+    context_object_name = 'charlas'
+    queryset = Charla.posibles.all()
+    template_name = 'listar_estado.html'
+    titulo = 'Posibles temas'   
+    
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(ListarEstadoView, self).get_context_data(**kwargs)
+        # Add in the publisher
+        context['titulo'] = self.titulo
+        return context
+
+
 class ListarAgendadoView(ListarEstadoView):
     queryset = Charla.agendadas.all()
+    titulo = 'Temas Agendados'
 
 
 class ListarFinalizadoView(ListarEstadoView):
     queryset = Charla.finalizadas.all()
+    titulo = 'Temas Finalizados'
 
 
 class RegistrarCharlaView(CreateView):

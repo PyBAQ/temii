@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Temii - {{titulo}}{% endblock %}
+
+{% block breadcrumb %}
+  <a href="{% url 'index' %}" class="breadcrumb">Inicio</a>
+  <a href="'#!'" class="breadcrumb">Charlas</a>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col s12">
+      <div class="card-panel grey lighten-4">
+        <h4 class="card-title grey-text text-darken-4">{{titulo}}</h4>
+        <a href="" class="grey-text">Categoria1</a>
+        <ul class="collection">
+        	{% for charla in charlas %}
+          <li>
+            <a href="" class="collection-item avatar unselect">
+              <i class="material-icons circle amber">insert_chart</i>
+              <span class="title">{{ charla.titulo }}</span>
+              <div class="secondary-content">
+                <i class="material-icons amber-text text-accent-2">grade</i><span class="grey-text">{{ charla.votos }}</span>
+                <i class="material-icons blue-text">comment</i><span class="grey-text">5</span>
+              </div>
+              <p class="grey-text label">Posteado por: {{ charla.usuario }}</p>
+              <p class="grey-text label">
+              	{{ charla.fecha_publicacion}}
+              </p>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>   
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}
