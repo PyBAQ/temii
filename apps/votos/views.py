@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
@@ -19,7 +20,7 @@ class ListarFinalizadoView(ListarEstadoView):
     queryset = Charla.finalizadas.all()
 
 
-class RegistrarCharlaView(CreateView):
+class RegistrarCharlaView(LoginRequiredMixin, CreateView):
     form_class = RegistrarCharlaForm
     model = Charla
     success_url = reverse_lazy('index')
