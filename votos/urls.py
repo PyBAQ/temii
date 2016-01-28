@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from apps.votos.views import ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, RegistrarCharlaView
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     url(r'^finalizado$', ListarFinalizadoView.as_view() ,name='finalizado' ),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^registrar_charla$', RegistrarCharlaView.as_view(), name='registrar_charla'),
+    url(r'^accounts/login/$', auth_views.login),
 ]
