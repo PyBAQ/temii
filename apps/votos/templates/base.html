@@ -31,16 +31,16 @@
       <a href="{% url 'index' %}" class="brand-logo">Temii</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'posibles' %}">Inicio</a></li>
-        <li><a href="{% url 'agendado' %}">Agendados</a></li>
-        <li><a href="{% url 'finalizado' %}">Finalizadas</a></li>
+        <li><a href="{% url 'index' %}"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
+        <li><a href="{% url 'posibles' %}"><i class="fa fa-list fa-fw"></i>Posibles</a></li>
+        <li><a href="{% url 'agendado' %}"><i class="fa fa-clock-o fa-fw"></i>Agendados</a></li>
+        <li><a href="{% url 'finalizado' %}"><i class="fa fa-check-square-o fa-fw"></i>Finalizadas</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'posibles' %}">Inicio</a></li>
-        <li><a href="{% url 'agendado' %}">Agendados</a></li>
-        <li><a href="{% url 'finalizado' %}">Finalizadas</a></li>
+        <li><a href="{% url 'index' %}"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
+        <li><a href="{% url 'posibles' %}"><i class="fa fa-list fa-fw"></i>Posibles</a></li>
+        <li><a href="{% url 'agendado' %}"><i class="fa fa-clock-o fa-fw"></i>Agendados</a></li>
+        <li><a href="{% url 'finalizado' %}"><i class="fa fa-check-square-o fa-fw"></i>Finalizadas</a></li>
       </ul>
     </div>
   </nav>
@@ -89,7 +89,7 @@
           <div class="col s12">
           <div class="card-panel grey lighten-4">
               <div class="collection unselect">
-                <a href="{% url 'index' %}" class="collection-item active blue lighten-2">Posibles</a>
+                <a href="{% url 'posibles' %}" class="collection-item active blue lighten-2">Posibles</a>
                 <a href="{% url 'agendado' %}" class="collection-item grey-text">Agendado</a>
                 <a href="{% url 'finalizado' %}" class="collection-item grey-text">Finalizado</a>
               </div>
