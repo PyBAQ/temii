@@ -7,7 +7,7 @@ from ..factories.user import UserFactory
 
 class ViewsTestCase(TestCase):
 
-    def test_posibles_eventos(self):
+    def test_index(self):
         self.get('index')
         self.response_200()
 
@@ -17,6 +17,10 @@ class ViewsTestCase(TestCase):
 
     def test_finalizados_eventos(self):
         self.get('finalizado')
+        self.response_200()
+
+    def test_posibles_eventos(self):
+        self.get('posibles')
         self.response_200()
 
     def test_get_registrar_charla(self):
