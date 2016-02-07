@@ -2,8 +2,9 @@ from django.test import TestCase
 
 from .. import models
 
+
 class TestModels(TestCase):
-    
+
     def test_create_category(self):
         category = models.Categoria(nombre="test")
         category.save()
@@ -13,6 +14,3 @@ class TestModels(TestCase):
         category = models.Categoria(nombre="test")
         category.save()
         self.assertEqual("test", str(category))
-
-
-        
