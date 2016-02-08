@@ -1,6 +1,8 @@
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 from .models import Voto, Charla
 from .forms import RegistrarCharlaForm
@@ -31,3 +33,7 @@ class RegistrarCharlaView(CreateView):
             self.object.usuario = self.request.user
         kwargs = super(RegistrarCharlaView, self).get_form_kwargs()
         return kwargs
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(RegistrarCharlaView, self).dispatch(*args, **kwargs)
