@@ -34,6 +34,11 @@
         <li><a href="{% url 'index' %}">Inicio</a></li>
         <li><a href="{% url 'agendado' %}">Agendados</a></li>
         <li><a href="{% url 'finalizado' %}">Finalizadas</a></li>
+        {% if user and not user.is_anonymous %}
+        <li><a href="{% url 'user-logout' %}">Cerrar sesión</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Ingresar</a></li>
+        {% endif %}
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="{% url 'index' %}">Inicio</a></li>

@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from apps.votos.views import ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, RegistrarCharlaView
-from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^$', ListarEstadoView.as_view() ,name='index' ),
@@ -28,7 +27,7 @@ urlpatterns = [
     # Python Social Auth URLs
     url('', include('social.apps.django_app.urls', namespace='social')),
 
-    url(r'^login', TemplateView.as_view(template_name="login.html"), name="login"),
+    url(r'^login', 'apps.votos.views.login', name="login"),
     url(r'^users/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="user-logout"),
 
 ]
