@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block main_content %}
+<!-- Page Content goes here -->
+<nav class="simple-nav">
+    <div class="nav-wrapper row">
+        <div class="col s12">
+          {% block breadcrumb %}
+            <a href="{% url 'index' %}" class="breadcrumb">Inicio</a>
+          {% endblock %}
+        </div>
+    </div>
+</nav>
+<div class="row">
+      <div class="col s12 m8">
+        <div class="row">
+          {% block content %}Bienvenido{% endblock %}
+        </div>
+      </div>
+      <!--Segunda Columna-->
+      <div class="col s12 m4">
+        <div class="row">
+          <div class="col s12">
+            <div class="card-panel grey lighten-4 profile">
+              <i class="material-icons circle blue lighten-2">perm_identity</i>
+              <span class="truncate">{% if user.is_authenticated %}¡Hola! @{{ user }}{% endif %}</span>
+            </div>
+          </div>
+        </div>
+        <p class="grey-text">Categorias</p>
+        <div class="row">
+          <div class="col s12">
+            <div class="card-panel grey lighten-4">
+              <div class="collection unselect">
+                <a href="#!" class="collection-item active blue lighten-2">Todas</a>
+                <a href="#!" class="collection-item grey-text">Categora1</a>
+                <a href="#!" class="collection-item grey-text">Categora2</a>
+                <a href="#!" class="collection-item grey-text">Categora3</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="grey-text">Estado</p>
+        <div class="row">
+          <div class="col s12">
+          <div class="card-panel grey lighten-4">
+              <div class="collection unselect">
+                <a href="{% url 'index' %}" class="collection-item active blue lighten-2">Posibles</a>
+                <a href="{% url 'agendado' %}" class="collection-item grey-text">Agendado</a>
+                <a href="{% url 'finalizado' %}" class="collection-item grey-text">Finalizado</a>
+              </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock main_content %}

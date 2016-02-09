@@ -3,7 +3,7 @@
 
 {% block title %}Temii - Login{% endblock %}
 
-{% block content %}
+{% block main_content %}
 
 {% if user and not user.is_anonymous %}
 
@@ -17,4 +17,4 @@ Bienvenido {{ user.get_full_name }}.
 </a>
 {% endif %}
 
-{% endblock %}
+{% endblock main_content %}
