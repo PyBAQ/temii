@@ -1,6 +1,9 @@
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render
+from django.shortcuts import render_to_response, redirect
 from django.views.generic import CreateView, ListView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.template.context import RequestContext
 
 from .models import Voto, Charla
 from .forms import RegistrarCharlaForm
@@ -31,3 +34,16 @@ class RegistrarCharlaView(CreateView):
             self.object.usuario = self.request.user
         kwargs = super(RegistrarCharlaView, self).get_form_kwargs()
         return kwargs
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(RegistrarCharlaView, self).dispatch(*args, **kwargs)
+
+
+def login(request):
+    if not request.user.is_authenticated():
+        context = RequestContext(request, {
+            'request': request, 'user': request.user})
+        return render_to_response('login.html', context_instance=context)
+    else:
+        return redirect('/', name='index')

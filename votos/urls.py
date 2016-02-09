@@ -23,4 +23,11 @@ urlpatterns = [
     url(r'^finalizado$', ListarFinalizadoView.as_view() ,name='finalizado' ),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^registrar_charla$', RegistrarCharlaView.as_view(), name='registrar_charla'),
+
+    # Python Social Auth URLs
+    url('', include('social.apps.django_app.urls', namespace='social')),
+
+    url(r'^login', 'apps.votos.views.login', name="login"),
+    url(r'^users/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="user-logout"),
+
 ]

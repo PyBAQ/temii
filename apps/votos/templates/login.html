@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Temii - Login{% endblock %}
+
+{% block content %}
+
+{% if user and not user.is_anonymous %}
+
+
+Bienvenido {{ user.get_full_name }}.
+<a href="{% url 'user-logout' %}">Cerrar sesión</a>
+
+{% else %}
+<a href="{% url 'social:begin' 'github' %}?next={{ request.path }}">
+    Ingresar con Github
+</a>
+{% endif %}
+
+{% endblock %}
