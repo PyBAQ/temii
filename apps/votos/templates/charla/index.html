@@ -16,7 +16,7 @@
         <ul class="collection">
         	{% for charla in charlas %}
           <li>
-            <a href="" class="collection-item avatar unselect">
+            <a href="{% url "detalle_charla" charla.pk %}" class="collection-item avatar unselect">
               <i class="material-icons circle amber">insert_chart</i>
               <span class="title">{{ charla.titulo }}</span>
               <div class="secondary-content">

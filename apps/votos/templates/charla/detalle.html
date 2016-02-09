@@ -1,0 +1,43 @@
+{% extends "content.html" %}
+{% load staticfiles %}
+
+{% block title %}Temii - Charla X{% endblock %}
+
+{% block breadcrumb %}
+  <a href="{% url 'index' %}" class="breadcrumb">Inicio</a>
+  <a href="{% url "detalle_charla" charla.pk %}" class="breadcrumb">{{ charla.titulo }}</a>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col s12">
+    <div class="card-panel grey lighten-4">
+      <h4 class="card-title grey-text text-darken-4">{{ charla.titulo }}</h4>
+      <p class="grey-text label">Posteado por: {{ charla.usuario }}</p>
+      <p class="grey-text label">
+      	Fecha publicación: {{ charla.fecha_publicacion}}
+      </p>
+      <p class="grey-text label">
+      	Pre-requisitos: 
+      	{% if charla.prerequisitos %}
+      		{{ charla.prerequisitos }}
+      	{% else %}
+      		Ninguno
+      	{% endif %}
+      </p>
+      <p class="grey-text label">
+      	{% if charla.fecha_taller %}
+      		Fecha taller: {{ charla.fecha_taller }}
+      	{% else %}
+      	{% endif %}
+      </p>
+      <p class="grey-text label">
+      	Votos: {{ charla.votos}}
+      </p>
+      <div>
+       {{ charla.descripcion }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
