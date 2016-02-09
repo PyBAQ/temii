@@ -11,7 +11,7 @@ from .forms import RegistrarCharlaForm
 class ListarEstadoView(ListView):
     context_object_name = 'charlas'
     queryset = Charla.posibles.all()
-    template_name = 'index.html'
+    template_name = 'charla/index.html'
 
 
 class ListarAgendadoView(ListarEstadoView):
@@ -26,7 +26,7 @@ class RegistrarCharlaView(CreateView):
     form_class = RegistrarCharlaForm
     model = Charla
     success_url = reverse_lazy('index')
-    template_name = 'registrar_charla.html'
+    template_name = 'charla/registrar.html'
 
     def get_form_kwargs(self):
         if self.request.method in ('POST', 'PUT'):
