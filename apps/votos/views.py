@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render_to_response, redirect
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.template.context import RequestContext
@@ -47,3 +47,9 @@ def login(request):
         return render_to_response('login.html', context_instance=context)
     else:
         return redirect('/', name='index')
+
+
+class DetalleCharlaView(DetailView):
+    context_object_name = 'charla'
+    model = Charla
+    template_name = 'charla/detalle.html'
