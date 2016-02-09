@@ -45,7 +45,7 @@ class ViewsTestCase(TestCase):
         with self.login(username=self.user.username, password='1234'):
             response = self.get("index")
             self.assertContains(response,
-                                '<span class="truncate">¡Hola! @{}</span>'.format(user.username),
+                                '<span class="truncate">¡Hola! @{}</span>'.format(self.user.username),
                                 status_code=200)
 
 
