@@ -31,19 +31,20 @@
       <a href="{% url 'index' %}" class="brand-logo">Temii</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'agendado' %}">Agendados</a></li>
-        <li><a href="{% url 'finalizado' %}">Finalizadas</a></li>
+        <li><a href="{% url 'index' %}"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
+        <li><a href="{% url 'agendado' %}"><i class="fa fa-clock-o fa-fw"></i>Agendados</a></li>
+        <li><a href="{% url 'finalizado' %}"><i class="fa fa-check-square-o fa-fw"></i>Finalizadas</a></li>
+        
         {% if user and not user.is_anonymous %}
-        <li><a href="{% url 'user-logout' %}">Cerrar sesión</a></li>
+        <li><a href="{% url 'user-logout' %}"><i class="fa fa-user-times fa-fw"></i>Cerrar sesión</a></li>
         {% else %}
-        <li><a href="{% url 'login' %}">Ingresar</a></li>
+        <li><a href="{% url 'login' %}"><i class="fa fa-user fa-fw"></i>Ingresar</a></li>
         {% endif %}
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="{% url 'index' %}">Inicio</a></li>
-        <li><a href="{% url 'agendado' %}">Agendados</a></li>
-        <li><a href="{% url 'finalizado' %}">Finalizadas</a></li>
+        <li><a href="{% url 'index' %}"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
+        <li><a href="{% url 'agendado' %}"><i class="fa fa-clock-o fa-fw"></i>Agendados</a></li>
+        <li><a href="{% url 'finalizado' %}"><i class="fa fa-check-square-o fa-fw"></i>Finalizadas</a></li>
       </ul>
     </div>
   </nav>
@@ -63,8 +64,9 @@
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Redes sociales</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="https://twitter.com/djangoquilla">Twitter</a></li>
-            <li><a class="grey-text text-lighten-3" href="http://www.meetup.com/Django-Barranquilla/">Meetup</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://twitter.com/djangoquilla"><i class="fa fa-twitter fa-fw"></i>Twitter</a></li>
+            <li><a class="grey-text text-lighten-3" href="http://www.meetup.com/Django-Barranquilla/"><i class="fa fa-users fa-fw"></i>
+Meetup</a></li>
           </ul>
         </div>
       </div>
