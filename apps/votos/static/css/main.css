@@ -229,3 +229,18 @@ body {
         page-break-after: avoid;
     }
 }
+
+/** Material css tweaks */
+.input-field .invalid {
+  border-bottom: 1px solid #f44336;
+  box-shadow: 0 1px 0 0 #f44336;
+}
+
+.select-field .invalid .select-dropdown {
+  border-bottom: 1px solid #f44336;
+  box-shadow: 0 1px 0 0 #f44336;
+}
+
+.has-error .errors{
+    color: #f44336;
+}
