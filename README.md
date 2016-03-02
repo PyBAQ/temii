@@ -7,10 +7,10 @@ Aplicación para escoger los futuros temas y talleristas para las charlas de la 
 
 ### Requerimientos
 
- * Python 2.7.x
- * PIP
- * Virtualenv + VirtualenWrapper
- * Django 1.8.7
+ * [Python 2.7.x](https://www.python.org/)  
+ * [PIP](https://pypi.python.org/pypi/pip)
+ * [Virtualenv + VirtualenWrapper](https://pypi.python.org/pypi/virtualenv)
+ * [Django 1.8.7](https://www.djangoproject.com/)
  * Editor de texto (Sublime Text, Atom, etc)
 
 ### Contribuciones
@@ -21,5 +21,4 @@ Necesitamos de tu ayuda para terminar este proyecto! **¿Cómo puedes contribuir
 
 ##### Licencia
 
-
-Apache
+[Apache License 2.0](LICENSE)

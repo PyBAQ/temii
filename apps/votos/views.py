@@ -5,13 +5,23 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.template.context import RequestContext
 
+from . import constants
 from .models import Voto, Charla
 from .forms import RegistrarCharlaForm
 
+from django.db.models import Q
+
 class ListarEstadoView(ListView):
     context_object_name = 'charlas'
-    queryset = Charla.posibles.all()
+    queryset = Charla.objects.all().order_by("estado")
     template_name = 'charla/index.html'
+
+    def get_queryset(self, *args, **kwargs):
+        queryset = super(ListarEstadoView, self).get_queryset(*args, **kwargs)
+        queryset = queryset.filter(Q(estado=constants.ESTADO_POSIBLE)|
+                                   Q(estado=constants.ESTADO_AGENDADO))
+        return queryset
+
 
 
 class ListarAgendadoView(ListarEstadoView):
