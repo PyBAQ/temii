@@ -15,7 +15,7 @@
         <a href="" class="grey-text">Categoria1</a>
         <ul class="collection">
         	{% for charla in charlas %}
-          <li>
+          <li {% if charla.estado == 'agendado' %}class="card-panel blue"{% endif %}>
             <a href="{% url "detalle_charla" charla.pk %}" class="collection-item avatar unselect">
               <i class="material-icons circle amber">insert_chart</i>
               <span class="title">{{ charla.titulo }}</span>
