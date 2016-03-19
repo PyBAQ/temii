@@ -1,4 +1,4 @@
-from base import *
+from .base import *
 
 
 DEBUG = True
@@ -10,6 +10,3 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'local.sqlite3'),
     }
 }
-
-
-print BASE_DIR

@@ -120,7 +120,7 @@ AUTHENTICATION_BACKENDS = (
 
 # Debes crear un app en Github para obtener las llaves
 # https://github.com/settings/applications/new
-
+STATIC_ROOT = ''
 SOCIAL_AUTH_GITHUB_KEY = '12345llavedeprueba'
 SOCIAL_AUTH_GITHUB_SECRET = '12345678901llavedeprueba'
 
