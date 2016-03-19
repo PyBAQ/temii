@@ -1,3 +1,4 @@
+
 Temii es un proyecto que surge inicialmente para ayudar a la comunidad
 de Django Barranquilla a escoger temas para futuras charlas.
 
@@ -15,3 +16,4 @@ han hecho a Temii un mejor proyecto:
 
 P.D: Por favor agreguense como colaboradores en el próximo
 Pull Request que hagan
+

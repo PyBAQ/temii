@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from .base import *
+=======
+from base import *
+>>>>>>> master
 import dj_database_url
 
 DEBUG = False
