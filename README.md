@@ -17,6 +17,8 @@ Aplicación para escoger los futuros temas y talleristas para las charlas de la 
 
 Necesitamos de tu ayuda para terminar este proyecto! **¿Cómo puedes contribuir?** Mira las normas que hemos redactado en el archivo [CONTRIBUTING.md] para organizarnos mejor en el desarrollo. Esperamos tus Pull Requests e Issues. Gracias por tu apoyo.
 
+Agradecimientos a los [autores](AUTHORS.md) de temii
+
 [CONTRIBUTING.md]: https://github.com/DjangoQuilla/temii/blob/master/CONTRIBUTING.md
 
 ##### Licencia
