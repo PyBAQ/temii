@@ -9,9 +9,9 @@ class CharlaManager(models.Manager):
     def get_queryset(self):
         return super(CharlaManager, self).get_queryset().filter(estado=self._estado)
 
-
 class CharlaPosibleManager(CharlaManager):
     _estado = constants.ESTADO_POSIBLE
+
 
 class CharlaAgendadaManager(CharlaManager):
     _estado = constants.ESTADO_AGENDADO
