@@ -23,13 +23,14 @@ class ListarEstadoView(ListView):
         return queryset
 
 
-
 class ListarAgendadoView(ListarEstadoView):
     queryset = Charla.agendadas.all()
 
 
-class ListarFinalizadoView(ListarEstadoView):
+class ListarFinalizadoView(ListView):
+    context_object_name = 'charlas'
     queryset = Charla.finalizadas.all()
+    template_name = 'charla/index.html'
 
 
 class RegistrarCharlaView(CreateView):
