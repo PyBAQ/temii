@@ -8,6 +8,7 @@ redactado documentación, resuelto dudas a los novatos y que generalmente
 han hecho a Temii un mejor proyecto:
 
 - Javier Daza [http://javierdaza.co](http://javierdaza.co)
+- Cesar Herdenez
 - Leonardo Orozco
 - Sergio C. Orozco Torres [scot3004.wordpress.com](http://scot3004.wordpress.com)
     

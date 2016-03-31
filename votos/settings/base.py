@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '12345'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -81,14 +82,13 @@ WSGI_APPLICATION = 'votos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+#DATABASES = {'default': {}}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'local.sqlite3'),
     }
 }
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -107,6 +107,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_URL  = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
@@ -124,3 +125,4 @@ SOCIAL_AUTH_GITHUB_KEY = '12345llavedeprueba'
 SOCIAL_AUTH_GITHUB_SECRET = '12345678901llavedeprueba'
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
