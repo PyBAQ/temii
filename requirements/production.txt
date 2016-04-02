@@ -1,0 +1,9 @@
+# Pro-tip: Try not to put anything here. There should be no dependency in
+#	production that isn't in development.
+-r base.txt
+##### Heroku #####
+
+dj-database-url==0.4.0
+gunicorn==19.4.5
+psycopg2==2.6.1
+whitenoise==2.0.6
