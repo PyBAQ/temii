@@ -4,3 +4,4 @@ local_settings.py
 *.sqlite3
 tasks.py
 .tox
+.vscode
