@@ -5,3 +5,4 @@ local_settings.py
 tasks.py
 .tox
 .vscode
+votos/staticfiles/
