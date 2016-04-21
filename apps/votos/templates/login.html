@@ -4,7 +4,7 @@
 {% block title %}Temii - Login{% endblock %}
 
 {% block estilos %}
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.4.1/octicons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/css-social-buttons/1.2.0/css/zocial.min.css">
 {% endblock %}
 
 
@@ -26,11 +26,9 @@
 				<p>
 					Bienvenido a Temii.
 				</p>
-				<a href="{% url 'social:begin' 'github' %}?next={{ request.path }}">
-					<button class="btn waves-effect waves-light">
-		                <span class="mega-octicon octicon-mark-github" style="font-size: 24px;"></span>
-						Ingresar con Github
-					</button>
+				<a class="zocial meetup"
+                    href="{% url 'social:begin' 'meetup' %}?next={{ request.path }}">
+                    Ingresar con Meetup
 				</a>
 			{% endif %}
 			</div>

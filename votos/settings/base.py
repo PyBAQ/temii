@@ -106,7 +106,7 @@ LOGIN_REDIRECT_URL = '/'
 
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.github.GithubOAuth2',
+    'social.backends.meetup.MeetupOAuth2',
 
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -114,8 +114,8 @@ AUTHENTICATION_BACKENDS = (
 # Debes crear un app en Github para obtener las llaves
 # https://github.com/settings/applications/new
 
-SOCIAL_AUTH_GITHUB_KEY = '12345llavedeprueba'
-SOCIAL_AUTH_GITHUB_SECRET = '12345678901llavedeprueba'
+SOCIAL_AUTH_MEETUP_KEY = 'dvrcsmu1vu4agfu2kpdsfqr0gs'
+SOCIAL_AUTH_MEETUP_SECRET = '88g305lsvjkfbi2qvas0gs4p6d'
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
