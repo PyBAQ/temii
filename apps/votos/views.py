@@ -1,3 +1,4 @@
+from __builtin__ import object
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
@@ -11,7 +12,7 @@ from .forms import RegistrarCharlaForm
 
 from django.db.models import Q
 
-class LoginRequired:
+class LoginRequired(object):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(LoginRequired, self).dispatch(*args, **kwargs)
