@@ -1,4 +1,5 @@
 {% extends "content.html" %}
+{% load staticfiles %}
 
 {% block title %}Temii - Charlas{% endblock %}
 
@@ -16,13 +17,15 @@
         <ul class="collection">
         	{% for charla in charlas %}
           <li {% if charla.estado == 'agendado' %}class="card-panel blue"{% endif %}>
+            <div class="secondary-content votes">
+                {% include "charla/voto.html" %}
+                <div>
+                    <i class="material-icons blue-text">comment</i><span class="grey-text">5</span>
+                </div>
+            </div>
             <a href="{% url "detalle_charla" charla.pk %}" class="collection-item avatar unselect">
               <i class="material-icons circle amber">insert_chart</i>
               <span class="title">{{ charla.titulo }}</span>
-              <div class="secondary-content">
-                <i class="material-icons amber-text text-accent-2">grade</i><span class="grey-text">{{ charla.votos }}</span>
-                <i class="material-icons blue-text">comment</i><span class="grey-text">5</span>
-              </div>
               <p class="grey-text label">Posteado por: {{ charla.usuario }}</p>
               <p class="grey-text label">
               	{{ charla.fecha_publicacion}}
@@ -45,3 +48,7 @@
       </div>
     {% endif %}
 {% endblock add_button %}
+{% block scripts %}
+    <script src="{% static "js/vendor/csrf.js" %}"></script>
+    <script src="{% static "js/eldarion-ajax.min.js" %}"></script>
+{% endblock %}
