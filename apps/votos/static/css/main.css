@@ -107,7 +107,8 @@ body {
 .secondary-content {
     display: flex;
     flex-direction: row;
-    width: 6rem;
+    /*width: 6rem;*/
+    width: 3.5rem;
     justify-content: space-around; 
 }
 
