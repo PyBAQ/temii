@@ -23,7 +23,7 @@
                 <i class="material-icons amber-text text-accent-2">grade</i><span class="grey-text">{{ charla.votos }}</span>
                 <!-- <i class="material-icons blue-text">comment</i><span class="grey-text">5</span> -->
               </div>
-              <p class="grey-text label">Posteado por: {{ charla.usuario }}</p>
+              <p class="grey-text label">Posteado por: {{ charla.usuario.first_name }} {{ charla.usuario.last_name }}</p>
               <p class="grey-text label">
               	{{ charla.fecha_publicacion}}
               </p>
