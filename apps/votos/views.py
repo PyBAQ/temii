@@ -11,7 +11,7 @@ from .forms import RegistrarCharlaForm
 
 from django.db.models import Q
 
-class LoginRequired:
+class LoginRequired(object):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(LoginRequired, self).dispatch(*args, **kwargs)
@@ -72,14 +72,20 @@ class VotoView(LoginRequired, TemplateView):
     http_method_names = ["post"]
 
     def post(self, request, *args, **kwargs):
-        charla = self.kwargs.get("charla")
-        voto, created = Voto.objects.get_or_create(charla_id=charla, usuario=request.user)
-        i=1
-        if not created:
-            i*=-1
-            voto.delete()
-        charla = Charla.objects.get(pk=charla)
-        charla.votos += i
-        charla.save()
+        id = self.kwargs.get("charla", None)
+        try:
+            charla = Charla.objects.get(id=id)
+        except:
+            return JsonResponse({"html": "Esta Charla no existe" })
+
+        if charla.estado == constants.ESTADO_POSIBLE:
+            voto, created = Voto.objects.get_or_create(charla=charla,
+                                                       usuario=request.user)
+            i = 1
+            if not created:
+                i *= -1
+                voto.delete()
+            charla.votos += i
+            charla.save()
         response = self.render_to_response({"charla":charla})
         return JsonResponse({"html": response.rendered_content })
