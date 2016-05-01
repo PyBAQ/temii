@@ -8,7 +8,7 @@ from ..factories.user import UserFactory
 from ..factories.charla import CharlaFactory
 
 from .. import constants
-from ..models import Charla
+from ..models import Charla, Voto
 
 
 class ViewsTestCase(TestCase):
@@ -86,6 +86,39 @@ class TestCharlaView(TestCase):
         self.assertEqual(len(qs), charlas.count())
         for i,model in enumerate(charlas):
             self.assertEqual(qs[i], model)
+
+    def test_user_vote(self):
+        user = UserFactory()
+        charla = CharlaFactory(estado=constants.ESTADO_POSIBLE)
+        with self.login(username=user.username, password='1234'):
+            self.post("votar", charla=charla.id)
+        self.assertEqual(Charla.objects.get(pk=charla.id).votos, 1)
+        self.assertEqual(True, Voto.objects.filter(charla=charla, usuario=user).exists())
+
+    def test_user_unvote(self):
+        user = UserFactory()
+        charla = CharlaFactory(estado=constants.ESTADO_POSIBLE)
+        with self.login(username=user.username, password='1234'):
+            self.post("votar", charla=charla.id)
+            self.post("votar", charla=charla.id)
+        self.assertEqual(Charla.objects.get(pk=charla.id).votos, 0)
+        self.assertEqual(False, Voto.objects.filter(charla=charla, usuario=user).exists())
+
+    def test_user_vote_protected(self):
+        charla = CharlaFactory(estado=constants.ESTADO_POSIBLE)
+        self.assertLoginRequired("votar", charla=charla.id)
+
+    def test_user_no_vote(self):
+        user = UserFactory()
+        charla = CharlaFactory(estado=constants.ESTADO_AGENDADO)
+        charla2 = CharlaFactory(estado=constants.ESTAOO_FINALIZADO)
+        with self.login(username=user.username, password='1234'):
+            self.post("votar", charla=charla.id)
+            self.post("votar", charla=charla2.id)
+        self.assertEqual(Charla.objects.get(pk=charla.id).votos, 0)
+        self.assertEqual(False, Voto.objects.filter(charla=charla, usuario=user).exists())
+        self.assertEqual(Charla.objects.get(pk=charla2.id).votos, 0)
+        self.assertEqual(False, Voto.objects.filter(charla=charla2, usuario=user).exists())
 
 
 class ViewTemplateTestCase(TestCase):
