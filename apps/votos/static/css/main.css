@@ -245,3 +245,10 @@ body {
 .has-error .errors{
     color: #f44336;
 }
+
+.secondary-content.votes{
+    position: relative;
+    z-index: 9999999;
+    margin-top: 10px;
+    margin-right: 6px
+}

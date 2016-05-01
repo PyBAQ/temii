@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from apps.votos.views import ListarEstadoView, ListarAgendadoView, ListarFinalizadoView, RegistrarCharlaView, DetalleCharlaView
+from apps.votos.views import VotoView
 
 urlpatterns = [
     url(r'^$', ListarEstadoView.as_view() ,name='index' ),
@@ -23,6 +24,7 @@ urlpatterns = [
     url(r'^finalizado$', ListarFinalizadoView.as_view() ,name='finalizado' ),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^registrar_charla$', RegistrarCharlaView.as_view(), name='registrar_charla'),
+    url(r'^votar/(?P<charla>\d+)$', VotoView.as_view(), name='votar'),
     url(r'^posible-charla/(?P<pk>\d+)$', DetalleCharlaView.as_view(),name='detalle_charla'),
 
     # Python Social Auth URLs
