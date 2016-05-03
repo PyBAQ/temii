@@ -1,0 +1,16 @@
+<div class="star-vote">
+    {% if user.is_authenticated %}
+    <a href="{% url "votar" charla.id %}" class="ajax" data-method="post" data-replace=".star-vote">
+        <i class="material-icons amber-text text-accent-2">
+            grade
+        </i>
+    </a>
+    {% else %}
+        <i class="material-icons amber-text text-accent-2">
+            grade
+        </i>
+    {% endif %}
+    <span class="grey-text">
+        {{ charla.votos }}
+    </span>
+</div>

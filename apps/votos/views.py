@@ -1,15 +1,21 @@
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render_to_response, redirect
-from django.views.generic import CreateView, ListView, DetailView
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
+from django.views.generic import CreateView, ListView, DetailView, TemplateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.template.context import RequestContext
 
 from . import constants
 from .models import Voto, Charla
 from .forms import RegistrarCharlaForm
 
 from django.db.models import Q
+
+class LoginRequired(object):
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LoginRequired, self).dispatch(*args, **kwargs)
+
 
 class ListarEstadoView(ListView):
     context_object_name = 'charlas'
@@ -33,7 +39,7 @@ class ListarFinalizadoView(ListView):
     template_name = 'charla/index.html'
 
 
-class RegistrarCharlaView(CreateView):
+class RegistrarCharlaView(LoginRequired, CreateView):
     form_class = RegistrarCharlaForm
     model = Charla
     success_url = reverse_lazy('index')
@@ -46,16 +52,10 @@ class RegistrarCharlaView(CreateView):
         kwargs = super(RegistrarCharlaView, self).get_form_kwargs()
         return kwargs
 
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(RegistrarCharlaView, self).dispatch(*args, **kwargs)
-
 
 def login(request):
     if not request.user.is_authenticated():
-        context = RequestContext(request, {
-            'request': request, 'user': request.user})
-        return render_to_response('login.html', context_instance=context)
+        return render(request, 'login.html')
     else:
         return redirect('/', name='index')
 
@@ -64,3 +64,28 @@ class DetalleCharlaView(DetailView):
     context_object_name = 'charla'
     model = Charla
     template_name = 'charla/detalle.html'
+
+
+class VotoView(LoginRequired, TemplateView):
+
+    template_name = "charla/voto.html"
+    http_method_names = ["post"]
+
+    def post(self, request, *args, **kwargs):
+        id = self.kwargs.get("charla", None)
+        try:
+            charla = Charla.objects.get(id=id)
+        except:
+            return JsonResponse({"html": "Esta Charla no existe" })
+
+        if charla.estado == constants.ESTADO_POSIBLE:
+            voto, created = Voto.objects.get_or_create(charla=charla,
+                                                       usuario=request.user)
+            i = 1
+            if not created:
+                i *= -1
+                voto.delete()
+            charla.votos += i
+            charla.save()
+        response = self.render_to_response({"charla":charla})
+        return JsonResponse({"html": response.rendered_content })
