@@ -26,7 +26,8 @@ class Charla(models.Model):
     estado = models.CharField(max_length=255, choices=constants.ESTADO_CHOICES, default="posible")
     fecha_taller = models.DateField(blank=True,null=True)
     votos = models.PositiveIntegerField(default=0)
-    usuario = models.ForeignKey(User)
+    usuario = models.ForeignKey(User, related_name = 'propone_charla')
+    tallerista = models.ForeignKey(User, related_name = 'tallerista', blank=True, null=True)
 
     objects = models.Manager()
     posibles = charla.CharlaPosibleManager()

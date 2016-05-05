@@ -37,6 +37,13 @@
       <div>
        {{ charla.descripcion }}
       </div>
+      <div id="categorias">
+        {% for categoria in charla.categorias.all %}
+          <div class="chip">
+              {{ categoria.nombre }}
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
