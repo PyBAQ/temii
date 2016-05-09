@@ -252,3 +252,20 @@ body {
     margin-top: 10px;
     margin-right: 6px
 }
+
+.talk-title{
+    display: inline-block;
+    width: 80%;
+}
+
+.talk-title + .star-vote{
+    display: inline-block;
+    text-align: right;
+    width: 18%;
+}
+
+.star-vote__detail span{
+    display: inline-block;
+    margin-top: 0.2rem;
+    vertical-align: top;
+}

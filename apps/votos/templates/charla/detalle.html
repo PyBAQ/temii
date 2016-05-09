@@ -12,7 +12,8 @@
 <div class="row">
   <div class="col s12">
     <div class="card-panel grey lighten-4">
-      <h4 class="card-title grey-text text-darken-4">{{ charla.titulo }}</h4>
+      <h4 class="card-title grey-text text-darken-4 talk-title">{{ charla.titulo }}</h4>
+      {% include "charla/voto.html" %}
       <p class="grey-text label">Posteado por: {{ charla.usuario.first_name }} {{ charla.usuario.last_name }}</p>
       <p class="grey-text label">
       	Fecha publicación: {{ charla.fecha_publicacion}}
@@ -31,9 +32,6 @@
       	{% else %}
       	{% endif %}
       </p>
-      <p class="grey-text label">
-      	Votos: {{ charla.votos}}
-      </p>
       <div>
        {{ charla.descripcion }}
       </div>
@@ -47,4 +45,8 @@
     </div>
   </div>
 </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static "js/vendor/csrf.js" %}"></script>
+    <script src="{% static "js/eldarion-ajax.min.js" %}"></script>
 {% endblock %}
