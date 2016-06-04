@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps.votos',
     'social.apps.django_app.default',
+    'django_assets',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -120,3 +121,9 @@ SOCIAL_AUTH_MEETUP_SECRET = '88g305lsvjkfbi2qvas0gs4p6d'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+STATICFILES_FINDERS = (
+   "django.contrib.staticfiles.finders.FileSystemFinder",
+   "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+   "django_assets.finders.AssetsFinder"
+)
