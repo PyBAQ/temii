@@ -24,3 +24,17 @@ Agradecimientos a los [autores](AUTHORS.md) de temii
 ##### Licencia
 
 [Apache License 2.0](LICENSE)
+
+### Scripts
+
+Instalación de dependencias
+: pip install -r requirements/local.txt
+
+Minimizar assets
+: python manage.py assets build --manifest django
+
+Recolección de estaticos
+: python manage.py collectstatic
+
+Correr servidor
+: python manage.py runserver
