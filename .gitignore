@@ -6,3 +6,7 @@ tasks.py
 .tox
 .vscode
 votos/staticfiles/
+# Jetbrains ides como intellij o pycharm
+.idea/
+# Netbeans
+nbproject/
