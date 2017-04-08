@@ -101,13 +101,13 @@ class VotoView(LoginRequired, TemplateView):
         if charla.estado == constants.ESTADO_POSIBLE:
             voto, created = Voto.objects.get_or_create(charla=charla,
                                                        usuario=request.user)
+            estado_estrella = True
             i = 1
             if not created:
                 i *= -1
                 voto.delete()
                 estado_estrella = False
-            else:
-                estado_estrella = True
+
 
             charla.votos += i
             charla.save()
