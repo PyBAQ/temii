@@ -6,3 +6,6 @@ tasks.py
 .tox
 .vscode
 votos/staticfiles/
+env/
+.idea/
+Makefile
