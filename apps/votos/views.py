@@ -65,6 +65,25 @@ class DetalleCharlaView(DetailView):
     model = Charla
     template_name = 'charla/detalle.html'
 
+    """A base view for displaying a single object."""
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        try:
+            charla = Charla.objects.get(id=self.object.id)
+        except:
+            return JsonResponse({"html": "Esta Charla no existe" })
+
+        try:
+            voto_charla = Voto.objects.get(usuario=request.user, charla=charla)
+            estado_estrella = True
+        except:
+            estado_estrella = False
+
+        context = self.get_context_data(object=self.object)
+        context["estado_estrella"] = estado_estrella
+        return self.render_to_response(context)
+
 
 class VotoView(LoginRequired, TemplateView):
 
@@ -73,6 +92,7 @@ class VotoView(LoginRequired, TemplateView):
 
     def post(self, request, *args, **kwargs):
         id = self.kwargs.get("charla", None)
+        estado_estrella = True
         try:
             charla = Charla.objects.get(id=id)
         except:
@@ -85,7 +105,10 @@ class VotoView(LoginRequired, TemplateView):
             if not created:
                 i *= -1
                 voto.delete()
+                estado_estrella = False
+
+
             charla.votos += i
             charla.save()
-        response = self.render_to_response({"charla":charla})
+        response = self.render_to_response({"charla":charla, "estado_estrella": estado_estrella})
         return JsonResponse({"html": response.rendered_content })
