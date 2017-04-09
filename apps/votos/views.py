@@ -92,7 +92,7 @@ class VotoView(LoginRequired, TemplateView):
 
     def post(self, request, *args, **kwargs):
         id = self.kwargs.get("charla", None)
-
+        estado_estrella = True
         try:
             charla = Charla.objects.get(id=id)
         except:
@@ -101,7 +101,6 @@ class VotoView(LoginRequired, TemplateView):
         if charla.estado == constants.ESTADO_POSIBLE:
             voto, created = Voto.objects.get_or_create(charla=charla,
                                                        usuario=request.user)
-            estado_estrella = True
             i = 1
             if not created:
                 i *= -1
