@@ -12,6 +12,7 @@ han hecho a Temii un mejor proyecto:
 - Cesar Herdenez
 - Leonardo Orozco
 - Sergio C. Orozco Torres [scot3004.wordpress.com](http://scot3004.wordpress.com)
+- Guzmán D. Darío [www.guzmandario.com](http://www.guzmandario.com)
 
 <Por favor agregarse en orden alfabético>
 

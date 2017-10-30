@@ -19,14 +19,34 @@ class LoginRequired(object):
 
 class ListarEstadoView(ListView):
     context_object_name = 'charlas'
-    queryset = Charla.objects.all().order_by("estado")
-    template_name = 'charla/index.html'
-
+    
     def get_queryset(self, *args, **kwargs):
-        queryset = super(ListarEstadoView, self).get_queryset(*args, **kwargs)
-        queryset = queryset.filter(Q(estado=constants.ESTADO_POSIBLE)|
-                                   Q(estado=constants.ESTADO_AGENDADO))
+        queryset = Charla.objects.filter(
+            Q(estado=constants.ESTADO_POSIBLE)|
+            Q(estado=constants.ESTADO_AGENDADO)
+        ).order_by("estado")
+
+        for charla in queryset:
+            if self.request.user.is_authenticated():    
+                votos = Voto.objects.filter(
+                    Q(charla=charla) &
+                    Q(usuario=self.request.user)
+                ).count()
+                
+                if votos > 0:
+                    charla.estado_estrella = True
+                else:
+                    charla.estado_estrella = False
+                
         return queryset
+    
+    template_name = 'charla/index.html'
+    
+    # def get_queryset(self, *args, **kwargs):
+    #     queryset = super(ListarEstadoView, self).get_queryset(*args, **kwargs)
+    #     queryset = queryset.filter(Q(estado=constants.ESTADO_POSIBLE)|
+    #                                Q(estado=constants.ESTADO_AGENDADO))
+    #     return queryset
 
 
 class ListarAgendadoView(ListarEstadoView):
@@ -76,12 +96,11 @@ class DetalleCharlaView(DetailView):
 
         try:
             voto_charla = Voto.objects.get(usuario=request.user, charla=charla)
-            estado_estrella = True
+            self.object.estado_estrella = True
         except:
-            estado_estrella = False
+            self.object.estado_estrella = False
 
         context = self.get_context_data(object=self.object)
-        context["estado_estrella"] = estado_estrella
         return self.render_to_response(context)
 
 
@@ -92,9 +111,10 @@ class VotoView(LoginRequired, TemplateView):
 
     def post(self, request, *args, **kwargs):
         id = self.kwargs.get("charla", None)
-        estado_estrella = True
+        
         try:
             charla = Charla.objects.get(id=id)
+            charla.estado_estrella = True
         except:
             return JsonResponse({"html": "Esta Charla no existe" })
 
@@ -105,10 +125,10 @@ class VotoView(LoginRequired, TemplateView):
             if not created:
                 i *= -1
                 voto.delete()
-                estado_estrella = False
+                charla.estado_estrella = False
 
 
             charla.votos += i
             charla.save()
-        response = self.render_to_response({"charla":charla, "estado_estrella": estado_estrella})
+        response = self.render_to_response({ "charla":charla })
         return JsonResponse({"html": response.rendered_content })
