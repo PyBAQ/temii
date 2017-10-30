@@ -19,8 +19,11 @@ class LoginRequired(object):
 
 class ListarEstadoView(ListView):
     context_object_name = 'charlas'
+    queryset = Charla.objects.all().order_by("estado")
+    template_name = 'charla/index.html'
     
     def get_queryset(self, *args, **kwargs):
+        queryset = super(ListarEstadoView, self).get_queryset(*args, **kwargs)
         queryset = Charla.objects.filter(
             Q(estado=constants.ESTADO_POSIBLE)|
             Q(estado=constants.ESTADO_AGENDADO)
@@ -39,15 +42,6 @@ class ListarEstadoView(ListView):
                     charla.estado_estrella = False
                 
         return queryset
-    
-    template_name = 'charla/index.html'
-    
-    # def get_queryset(self, *args, **kwargs):
-    #     queryset = super(ListarEstadoView, self).get_queryset(*args, **kwargs)
-    #     queryset = queryset.filter(Q(estado=constants.ESTADO_POSIBLE)|
-    #                                Q(estado=constants.ESTADO_AGENDADO))
-    #     return queryset
-
 
 class ListarAgendadoView(ListarEstadoView):
     queryset = Charla.agendadas.all()
