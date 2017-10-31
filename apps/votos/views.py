@@ -11,6 +11,7 @@ from .forms import RegistrarCharlaForm
 
 from django.db.models import Q
 
+
 class LoginRequired(object):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -24,7 +25,7 @@ class ListarEstadoView(ListView):
 
     def get_queryset(self, *args, **kwargs):
         queryset = super(ListarEstadoView, self).get_queryset(*args, **kwargs)
-        queryset = queryset.filter(Q(estado=constants.ESTADO_POSIBLE)|
+        queryset = queryset.filter(Q(estado=constants.ESTADO_POSIBLE) |
                                    Q(estado=constants.ESTADO_AGENDADO))
         return queryset
 
@@ -71,13 +72,13 @@ class DetalleCharlaView(DetailView):
 
         try:
             charla = Charla.objects.get(id=self.object.id)
-        except:
-            return JsonResponse({"html": "Esta Charla no existe" })
+        except Charla.DoesNotExist:
+            return JsonResponse({"html": "Esta Charla no existe"})
 
         try:
             voto_charla = Voto.objects.get(usuario=request.user, charla=charla)
             estado_estrella = True
-        except:
+        except Voto.DoesNotExist:
             estado_estrella = False
 
         context = self.get_context_data(object=self.object)
@@ -95,8 +96,8 @@ class VotoView(LoginRequired, TemplateView):
         estado_estrella = True
         try:
             charla = Charla.objects.get(id=id)
-        except:
-            return JsonResponse({"html": "Esta Charla no existe" })
+        except Charla.DoesNotExist:
+            return JsonResponse({"html": "Esta Charla no existe"})
 
         if charla.estado == constants.ESTADO_POSIBLE:
             voto, created = Voto.objects.get_or_create(charla=charla,
@@ -107,8 +108,10 @@ class VotoView(LoginRequired, TemplateView):
                 voto.delete()
                 estado_estrella = False
 
-
             charla.votos += i
             charla.save()
-        response = self.render_to_response({"charla":charla, "estado_estrella": estado_estrella})
-        return JsonResponse({"html": response.rendered_content })
+        response = self.render_to_response({
+            "charla": charla,
+            "estado_estrella": estado_estrella}
+        )
+        return JsonResponse({"html": response.rendered_content})

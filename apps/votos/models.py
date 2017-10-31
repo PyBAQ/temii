@@ -1,4 +1,4 @@
-#encoding:utf-8
+# encoding:utf-8
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.encoding import python_2_unicode_compatible
@@ -23,11 +23,13 @@ class Charla(models.Model):
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
     categorias = models.ManyToManyField(Categoria)
     prerequisitos = models.TextField(blank=True, null=True)
-    estado = models.CharField(max_length=255, choices=constants.ESTADO_CHOICES, default="posible")
-    fecha_taller = models.DateField(blank=True,null=True)
+    estado = models.CharField(max_length=255, choices=constants.ESTADO_CHOICES,
+                              default="posible")
+    fecha_taller = models.DateField(blank=True, null=True)
     votos = models.PositiveIntegerField(default=0)
-    usuario = models.ForeignKey(User, related_name = 'propone_charla')
-    tallerista = models.ForeignKey(User, related_name = 'tallerista', blank=True, null=True)
+    usuario = models.ForeignKey(User, related_name='propone_charla')
+    tallerista = models.ForeignKey(User, related_name='tallerista',
+                                   blank=True, null=True)
 
     objects = models.Manager()
     posibles = charla.CharlaPosibleManager()
