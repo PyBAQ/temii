@@ -24,10 +24,10 @@ class ListarEstadoView(ListView):
     
     def get_queryset(self, *args, **kwargs):
         queryset = super(ListarEstadoView, self).get_queryset(*args, **kwargs)
-        queryset = Charla.objects.filter(
+        queryset = queryset.filter(
             Q(estado=constants.ESTADO_POSIBLE)|
             Q(estado=constants.ESTADO_AGENDADO)
-        ).order_by("estado")
+        )
 
         for charla in queryset:
             if self.request.user.is_authenticated():    
