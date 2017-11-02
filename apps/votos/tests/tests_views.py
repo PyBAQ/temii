@@ -41,9 +41,13 @@ class ViewsTestCase(TestCase):
     def test_user_name_in_index(self):
         with self.login(username=self.user.username, password='1234'):
             response = self.get("index")
-            self.assertContains(response,
-                                '<span class="truncate">¡Hola! @{}</span>'.format(self.user.first_name),
-                                status_code=200)
+            self.assertContains(
+                response,
+                '<span class="truncate">¡Hola! @{}</span>'.format(
+                    self.user.first_name
+                ),
+                status_code=200
+            )
 
 
 class TestCharlaView(TestCase):
@@ -54,7 +58,7 @@ class TestCharlaView(TestCase):
         self.get('index')
         charlas = self.get_context('charlas')
         self.assertEqual(len(qs), charlas.count())
-        for i,model in enumerate(charlas):
+        for i, model in enumerate(charlas):
             self.assertEqual(qs[i], model)
 
     def test_charlas_seleccionadas(self):
@@ -64,7 +68,7 @@ class TestCharlaView(TestCase):
         self.get('index')
         charlas = self.get_context('charlas')
         self.assertEqual(len(qs), charlas.count())
-        for i,model in enumerate(charlas):
+        for i, model in enumerate(charlas):
             self.assertEqual(qs[i], model)
 
     def test_charlas_agendadas(self):
@@ -74,7 +78,7 @@ class TestCharlaView(TestCase):
         self.get('agendado')
         charlas = self.get_context('charlas')
         self.assertEqual(len(qs), charlas.count())
-        for i,model in enumerate(charlas):
+        for i, model in enumerate(charlas):
             self.assertEqual(qs[i], model)
 
     def test_charlas_finalizadas(self):
@@ -84,7 +88,7 @@ class TestCharlaView(TestCase):
         self.get('finalizado')
         charlas = self.get_context('charlas')
         self.assertEqual(len(qs), charlas.count())
-        for i,model in enumerate(charlas):
+        for i, model in enumerate(charlas):
             self.assertEqual(qs[i], model)
 
     def test_user_vote(self):
@@ -93,7 +97,9 @@ class TestCharlaView(TestCase):
         with self.login(username=user.username, password='1234'):
             self.post("votar", charla=charla.id)
         self.assertEqual(Charla.objects.get(pk=charla.id).votos, 1)
-        self.assertEqual(True, Voto.objects.filter(charla=charla, usuario=user).exists())
+        self.assertEqual(True, Voto.objects.filter(
+            charla=charla, usuario=user
+        ).exists())
 
     def test_user_unvote(self):
         user = UserFactory()
@@ -102,7 +108,9 @@ class TestCharlaView(TestCase):
             self.post("votar", charla=charla.id)
             self.post("votar", charla=charla.id)
         self.assertEqual(Charla.objects.get(pk=charla.id).votos, 0)
-        self.assertEqual(False, Voto.objects.filter(charla=charla, usuario=user).exists())
+        self.assertEqual(False, Voto.objects.filter(
+            charla=charla, usuario=user
+        ).exists())
 
     def test_user_vote_protected(self):
         charla = CharlaFactory(estado=constants.ESTADO_POSIBLE)
@@ -116,9 +124,13 @@ class TestCharlaView(TestCase):
             self.post("votar", charla=charla.id)
             self.post("votar", charla=charla2.id)
         self.assertEqual(Charla.objects.get(pk=charla.id).votos, 0)
-        self.assertEqual(False, Voto.objects.filter(charla=charla, usuario=user).exists())
+        self.assertEqual(False, Voto.objects.filter(
+            charla=charla, usuario=user
+        ).exists())
         self.assertEqual(Charla.objects.get(pk=charla2.id).votos, 0)
-        self.assertEqual(False, Voto.objects.filter(charla=charla2, usuario=user).exists())
+        self.assertEqual(False, Voto.objects.filter(
+            charla=charla2, usuario=user
+        ).exists())
 
 
 class ViewTemplateTestCase(TestCase):
@@ -128,7 +140,7 @@ class ViewTemplateTestCase(TestCase):
 
     def test_index_template(self):
         response = self.get("index")
-        self.assertTemplateUsed(response,"charla/index.html")
+        self.assertTemplateUsed(response, "charla/index.html")
 
     def test_get_registrar_charla(self):
         with self.login(username=self.user.username, password='1234'):

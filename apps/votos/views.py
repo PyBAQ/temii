@@ -11,6 +11,7 @@ from .forms import RegistrarCharlaForm
 
 from django.db.models import Q
 
+
 class LoginRequired(object):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -40,7 +41,6 @@ class ListarEstadoView(ListView):
                     charla.estado_estrella = True
                 else:
                     charla.estado_estrella = False
-                
         return queryset
 
 class ListarAgendadoView(ListarEstadoView):
@@ -85,13 +85,13 @@ class DetalleCharlaView(DetailView):
 
         try:
             charla = Charla.objects.get(id=self.object.id)
-        except:
-            return JsonResponse({"html": "Esta Charla no existe" })
+        except Charla.DoesNotExist:
+            return JsonResponse({"html": "Esta Charla no existe"})
 
         try:
             voto_charla = Voto.objects.get(usuario=request.user, charla=charla)
             self.object.estado_estrella = True
-        except:
+        except Voto.DoesNotExist:
             self.object.estado_estrella = False
 
         context = self.get_context_data(object=self.object)
@@ -109,7 +109,7 @@ class VotoView(LoginRequired, TemplateView):
         try:
             charla = Charla.objects.get(id=id)
             charla.estado_estrella = True
-        except:
+        except Charla.DoesNotExist:
             return JsonResponse({"html": "Esta Charla no existe" })
 
         if charla.estado == constants.ESTADO_POSIBLE:
@@ -120,7 +120,6 @@ class VotoView(LoginRequired, TemplateView):
                 i *= -1
                 voto.delete()
                 charla.estado_estrella = False
-
 
             charla.votos += i
             charla.save()
