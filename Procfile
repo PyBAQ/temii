@@ -1,1 +1,1 @@
-web: gunicorn application --log-file -
+web: gunicorn votos.wsgi_production --log-file -
