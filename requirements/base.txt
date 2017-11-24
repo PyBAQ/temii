@@ -1,6 +1,6 @@
 contextlib2==0.5.5
 Django==1.8.7
-django-material==0.5.1
+django-material==0.8.0
 oauthlib==1.0.3
 PyJWT==1.4.0
 python-openid==2.2.5
