@@ -112,7 +112,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Debes crear un app en Github para obtener las llaves
-# https://github.com/settings/applications/new
+# https://python-social-auth.readthedocs.io/en/latest/backends/meetup.html
 
 SOCIAL_AUTH_MEETUP_KEY = os.getenv('SOCIAL_AUTH_MEETUP_KEY',
                                    'dvrcsmu1vu4agfu2kpdsfqr0gs')
