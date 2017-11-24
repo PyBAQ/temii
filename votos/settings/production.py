@@ -13,5 +13,4 @@ WSGI_APPLICATION = 'votos.wsgi_production.application'
 
 RAVEN_CONFIG = {
     'dsn': os.environ.get('SENTRY_KEY'),
-    'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
 }
