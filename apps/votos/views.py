@@ -89,7 +89,7 @@ class DetalleCharlaView(DetailView):
             return JsonResponse({"html": "Esta Charla no existe"})
 
         try:
-            voto_charla = Voto.objects.get(usuario=request.user, charla=charla)
+            voto_charla = Voto.objects.get(usuario=request.user.id, charla=charla)
             self.object.estado_estrella = True
         except Voto.DoesNotExist:
             self.object.estado_estrella = False
