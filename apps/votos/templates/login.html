@@ -26,6 +26,10 @@
 				<p>
 					Bienvenido a Temii.
 				</p>
+				<a class="zocial github"
+				    href="{% url 'social:begin' 'github' %}?next={{ request.path }}">
+					Ingresar con Github
+				</a>
 				<a class="zocial meetup"
                     href="{% url 'social:begin' 'meetup' %}?next={{ request.path }}">
                     Ingresar con Meetup
