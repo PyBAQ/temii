@@ -124,9 +124,9 @@ SOCIAL_AUTH_MEETUP_SECRET = os.getenv('SOCIAL_AUTH_MEETUP_SECRET',
 # Debes crear un app en GitHub para obtener las llaves
 # https://python-social-auth.readthedocs.io/en/latest/backends/github.html
 
-SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_MEETUP_KEY',
+SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY',
                                    '12345llavedeprueba')
-SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_MEETUP_SECRET',
+SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET',
                                       '12345678901llavedeprueba')
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
