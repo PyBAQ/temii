@@ -30,9 +30,9 @@
 				    href="{% url 'social:begin' 'github' %}?next={{ request.path }}">
 					Ingresar con Github
 				</a>
-				<a class="zocial meetup"
-                    href="{% url 'social:begin' 'meetup' %}?next={{ request.path }}">
-                    Ingresar con Meetup
+				<a class="zocial google"
+				    href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">
+					Ingresar con Google
 				</a>
 			{% endif %}
 			</div>

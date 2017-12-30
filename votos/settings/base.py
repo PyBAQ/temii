@@ -108,18 +108,10 @@ LOGIN_REDIRECT_URL = '/'
 
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.meetup.MeetupOAuth2',
     'social.backends.github.GithubOAuth2',
+    'social.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
-
-# Debes crear un app en Meetup para obtener las llaves
-# https://python-social-auth.readthedocs.io/en/latest/backends/meetup.html
-
-SOCIAL_AUTH_MEETUP_KEY = os.getenv('SOCIAL_AUTH_MEETUP_KEY',
-                                   'dvrcsmu1vu4agfu2kpdsfqr0gs')
-SOCIAL_AUTH_MEETUP_SECRET = os.getenv('SOCIAL_AUTH_MEETUP_SECRET',
-                                      '88g305lsvjkfbi2qvas0gs4p6d')
 
 # Debes crear un app en GitHub para obtener las llaves
 # https://python-social-auth.readthedocs.io/en/latest/backends/github.html
@@ -128,6 +120,14 @@ SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY',
                                    '12345llavedeprueba')
 SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET',
                                       '12345678901llavedeprueba')
+
+# Debes crear un app en Google para obtener las llaves
+# https://python-social-auth.readthedocs.io/en/latest/backends/google.html#google-oauth2
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY',
+                                   'dvrcsmu1vu4agfu2kpdsfqr0gs')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET',
+                                      '88g305lsvjkfbi2qvas0gs4p6d')
 
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
