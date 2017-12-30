@@ -47,7 +47,7 @@
       <div id="disqus_thread"></div>
       <script>
       var disqus_config = function () {
-      this.page.url = 'https://arcane-ocean-71807.herokuapp.com/posible-charla/{{ charla.pk }}' ;
+      this.page.url = '{{ request.get_host }}/posible-charla/{{ charla.pk }}' ;
       this.page.identifier = '/{{ charla.pk }}/';
       };
 
