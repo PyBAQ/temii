@@ -27,21 +27,29 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = (
-    'material',
-    'material.admin',
+DJANGO_CORE_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.votos',
-    'social.apps.django_app.default',
-    'raven.contrib.django.raven_compat',
+    'django.contrib.humanize',
 )
+CORE_APPS = (
+    'apps',
+    'apps.votos',
+)
+THIRD_PATTY_APPS = (
+    'social.apps.django_app.default', 
+    'raven.contrib.django.raven_compat',
+    'material',
+    'material.admin',
+    'social_django',
+)
+INSTALLED_APPS = DJANGO_CORE_APPS + THIRD_PATTY_APPS + CORE_APPS
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
