@@ -1,4 +1,0 @@
-pycryptodomex
-requests
-six
-future
