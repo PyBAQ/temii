@@ -9,3 +9,4 @@ votos/staticfiles/
 env/
 .idea/
 Makefile
+.DS_Store

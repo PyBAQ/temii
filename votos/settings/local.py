@@ -10,3 +10,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'local.sqlite3'),
     }
 }
+
+INSTALLED_APPS += [
+    'django_extensions',
+]
