@@ -32,9 +32,10 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{% url 'index' %}"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
+        <li><a href="{% url 'faq' %}"><i class="fa fa-info fa-fw"></i>FAQS</a></li>
         <li><a href="{% url 'agendado' %}"><i class="fa fa-clock-o fa-fw"></i>Agendados</a></li>
         <li><a href="{% url 'finalizado' %}"><i class="fa fa-check-square-o fa-fw"></i>Finalizadas</a></li>
-        
+
         {% if user and not user.is_anonymous %}
         <li><a href="{% url 'user-logout' %}"><i class="fa fa-user-times fa-fw"></i>Cerrar sesión</a></li>
         {% else %}
@@ -72,7 +73,7 @@
             <li><a class="grey-text text-lighten-3" href="https://twitter.com/pybaq"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
             <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/pybaq"><i class="fa fa-facebook-official fa-fw"></i> Facebook</a></li>
             <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/pybaq/"><i class="fa fa-instagram fa-fw"></i> Instagram</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://www.meetup.com/pythonbaq"><i class="fa fa-users fa-fw"></i> 
+            <li><a class="grey-text text-lighten-3" href="https://www.meetup.com/pythonbaq"><i class="fa fa-users fa-fw"></i>
 Meetup</a></li>
           </ul>
         </div>

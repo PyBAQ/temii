@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from apps.votos.views import (
     ListarEstadoView, ListarAgendadoView, ListarFinalizadoView,
-    RegistrarCharlaView, DetalleCharlaView
+    RegistrarCharlaView, DetalleCharlaView, ListarFaqView
 )
 from apps.votos.views import VotoView
 
@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$', ListarEstadoView.as_view(), name='index'),
     url(r'^agendado$', ListarAgendadoView.as_view(), name='agendado'),
     url(r'^finalizado$', ListarFinalizadoView.as_view(), name='finalizado'),
+    url(r'^faq$', ListarFaqView.as_view(), name='faq'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^registrar_charla$',
         RegistrarCharlaView.as_view(),

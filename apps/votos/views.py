@@ -22,7 +22,7 @@ class ListarEstadoView(ListView):
     context_object_name = 'charlas'
     queryset = Charla.objects.all().order_by("estado")
     template_name = 'charla/index.html'
-    
+
     def get_queryset(self, *args, **kwargs):
         queryset = super(ListarEstadoView, self).get_queryset(*args, **kwargs)
         queryset = queryset.filter(
@@ -31,12 +31,12 @@ class ListarEstadoView(ListView):
         )
 
         for charla in queryset:
-            if self.request.user.is_authenticated():    
+            if self.request.user.is_authenticated():
                 votos = Voto.objects.filter(
                     Q(charla=charla) &
                     Q(usuario=self.request.user)
                 ).count()
-                
+
                 if votos > 0:
                     charla.estado_estrella = True
                 else:
@@ -52,6 +52,8 @@ class ListarFinalizadoView(ListView):
     queryset = Charla.finalizadas.all()
     template_name = 'charla/index.html'
 
+class ListarFaqView(TemplateView):
+    template_name = 'faqs/index.html'
 
 class RegistrarCharlaView(LoginRequired, CreateView):
     form_class = RegistrarCharlaForm
@@ -105,7 +107,7 @@ class VotoView(LoginRequired, TemplateView):
 
     def post(self, request, *args, **kwargs):
         id = self.kwargs.get("charla", None)
-        
+
         try:
             charla = Charla.objects.get(id=id)
             charla.estado_estrella = True
