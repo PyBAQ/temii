@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth.views import logout
+
 from apps.votos.views import (
     ListarEstadoView, ListarAgendadoView, ListarFinalizadoView,
     RegistrarCharlaView, DetalleCharlaView
 )
-from apps.votos.views import VotoView
+from apps.votos.views import VotoView, login
 
 urlpatterns = [
     url(r'^$', ListarEstadoView.as_view(), name='index'),
@@ -35,10 +37,11 @@ urlpatterns = [
         name='detalle_charla'),
 
     # Python Social Auth URLs
-    url('', include('social.apps.django_app.urls', namespace='social')),
+    # url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
 
-    url(r'^login', 'apps.votos.views.login', name="login"),
-    url(r'^users/logout/$', 'django.contrib.auth.views.logout',
+    url(r'^login', login, name="login"),
+    url(r'^users/logout/$', logout,
         {'next_page': '/'},
         name="user-logout"),
 

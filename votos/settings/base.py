@@ -27,7 +27,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'material',
     'material.admin',
     'django.contrib.admin',
@@ -37,11 +37,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.votos',
-    'social.apps.django_app.default',
+    'social_django',
+    # 'social.apps.django_app.default',
     'raven.contrib.django.raven_compat',
-)
+]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -50,7 +51,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-)
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+]
 
 ROOT_URLCONF = 'votos.urls'
 
@@ -66,8 +68,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'social.apps.django_app.context_processors.backends',
-                'social.apps.django_app.context_processors.login_redirect',
+                # 'social.apps.django_app.context_processors.backends',
+                # 'social.apps.django_app.context_processors.login_redirect',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -108,8 +112,10 @@ LOGIN_REDIRECT_URL = '/'
 
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.github.GithubOAuth2',
-    'social.backends.google.GoogleOAuth2',
+    # 'social.backends.github.GithubOAuth2',
+    # 'social.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
