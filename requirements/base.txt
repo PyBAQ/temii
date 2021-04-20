@@ -8,7 +8,7 @@ idna==2.6
 ipaddress==1.0.19
 oauthlib==2.0.6
 pluggy==0.6.0
-py==1.5.2
+py==1.10.0
 pycryptodomex==3.4.12
 pyjwkest==1.4.0
 PyJWT==1.5.3
