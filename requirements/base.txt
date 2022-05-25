@@ -11,7 +11,7 @@ pluggy==0.6.0
 py==1.5.2
 pycryptodomex==3.4.12
 pyjwkest==1.4.0
-PyJWT==1.5.3
+PyJWT==2.4.0
 python-dateutil==2.6.1
 python-openid==2.2.5
 python-social-auth==0.3.6
