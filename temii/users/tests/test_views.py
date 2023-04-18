@@ -11,11 +11,7 @@ from django.urls import reverse
 from temii.users.forms import UserAdminChangeForm
 from temii.users.models import User
 from temii.users.tests.factories import UserFactory
-from temii.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from temii.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
 
