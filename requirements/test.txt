@@ -1,6 +1,0 @@
--r base.txt
-django-extensions==2.0.0
-django-test-plus==1.0.11
-factory-boy==2.6.0
-fake-factory==0.7.4
-tox==2.7.0

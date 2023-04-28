@@ -6,11 +6,11 @@ Aplicación para escoger los futuros temas y talleristas para las charlas de la 
 
 ### Requerimientos
 
- * [Python 2.7.x](https://www.python.org/)  
- * [PIP](https://pypi.python.org/pypi/pip)
- * [Virtualenv + VirtualenWrapper](https://pypi.python.org/pypi/virtualenv)
- * [Django 1.8.7](https://www.djangoproject.com/)
- * Editor de texto (Sublime Text, Atom, etc)
+- [Python 2.7.x](https://www.python.org/)
+- [PIP](https://pypi.python.org/pypi/pip)
+- [Virtualenv + VirtualenWrapper](https://pypi.python.org/pypi/virtualenv)
+- [Django 1.8.7](https://www.djangoproject.com/)
+- Editor de texto (Sublime Text, Atom, etc)
 
 ### Contribuciones
 

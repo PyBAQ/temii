@@ -1,6 +1,6 @@
 # ¿Cómo Contribuir?
 
-Existen muchas formas en las que puedes contribuir a *Temii*.
+Existen muchas formas en las que puedes contribuir a _Temii_.
 
 Contribuyendo con código, escribiendo documentación, reportando errores, así
 como leyendo y proporcionando tus comentarios a issues y pull-requests (PR),
@@ -12,7 +12,7 @@ se implementen y nos permita trabajar bajo los mismos lineamientos.
 
 ## Haciendo cambios en el código
 
-Al ser *Temii* un proyecto abierto, todos pueden contribuir con sus cambios e
+Al ser _Temii_ un proyecto abierto, todos pueden contribuir con sus cambios e
 integrarlos al repositorio principal de una forma fácil.
 
 Para esto recomendamos que todo el trabajo que hagas, lo realices en una rama
@@ -36,7 +36,7 @@ a que pueden ser la causa de un rechazo a un pull-requests.
 
 ## Estilo de codificación
 
-Cuando vayas a escribir código que quieras que sea incluido en *Temii*, ten
+Cuando vayas a escribir código que quieras que sea incluido en _Temii_, ten
 en cuenta el estilo de codificación que utilizas.
 
 Estaremos validando que el código propuesto, cumpla con la mayoría de las reglas
@@ -48,25 +48,25 @@ estilos puede generar un rechazo de tu PR.
 
 Este es un ejemplo de estas reglas aplicadas:
 
-	# Primer grupo de imports "stdlib"
-	# no-from imports van de primero y luegos los from en su propio grupo
-	import csv
+    # Primer grupo de imports "stdlib"
+    # no-from imports van de primero y luegos los from en su propio grupo
+    import csv
 
-	# Segundo grupo de imports son los de Django con los contrib en su propio grupo.
-	from django.core.urlresolvers import reverse
-	from django.db import models
-	from django.utils import timezone
-	from django.utils.translation import ugettext_lazy as _
+    # Segundo grupo de imports son los de Django con los contrib en su propio grupo.
+    from django.core.urlresolvers import reverse
+    from django.db import models
+    from django.utils import timezone
+    from django.utils.translation import ugettext_lazy as _
 
-	from django.contrib.auth.models import User
+    from django.contrib.auth.models import User
 
-	# Tercer grupo son los imports de aplicaciones de terceros (si aplica)
-	from tagging.fields import TagField
+    # Tercer grupo son los imports de aplicaciones de terceros (si aplica)
+    from tagging.fields import TagField
 
-	# Cuarto grupo son los imports de aplicaciones locales
-	from .fields import MarkupField
+    # Cuarto grupo son los imports de aplicaciones locales
+    from .fields import MarkupField
 
-	class Task(models.Model):
+    class Task(models.Model):
     """
     A model for storing a task.
     """
@@ -108,7 +108,7 @@ en particular), por favor, re-organízalo en un solo commit:
 $ git rebase -i HEAD~10  # donde 10 es el número de commits que necesitas.
 ```
 
-Esto abrirá un editor con tus  commits y algunas instrucciones que necesitas
+Esto abrirá un editor con tus commits y algunas instrucciones que necesitas
 seguir para poder escoger los commits que quieres integrar reemplazando ‘pick’
 por ‘s’ para combinarlos con un commit previo.
 

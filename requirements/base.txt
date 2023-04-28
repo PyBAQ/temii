@@ -1,28 +1,24 @@
-certifi==2018.1.18
-chardet==3.0.4
-contextlib2==0.5.5
-Django==1.11.10
-django-material==1.2.0
-future==0.16.0
-idna==2.6
-ipaddress==1.0.19
-oauthlib==2.0.6
-pluggy==0.6.0
-py==1.5.2
-pycryptodomex==3.4.12
-pyjwkest==1.4.0
-PyJWT==1.5.3
-python-dateutil==2.6.1
-python-openid==2.2.5
-python-social-auth==0.3.6
-pytz==2018.3
-raven==6.4.0
-requests==2.18.4
-requests-oauthlib==0.8.0
-six==1.11.0
-social-auth-app-django==2.1.0
-social-auth-core==1.7.0
-typing==3.6.4
-urllib3==1.22
-virtualenv==15.1.0
-whitenoise==3.3.1
+pytz==2023.3  # https://github.com/stub42/pytz
+python-slugify==8.0.1  # https://github.com/un33k/python-slugify
+Pillow==9.5.0  # https://github.com/python-pillow/Pillow
+rcssmin==1.1.1  # https://github.com/ndparker/rcssmin
+argon2-cffi==21.3.0  # https://github.com/hynek/argon2_cffi
+whitenoise==6.4.0  # https://github.com/evansd/whitenoise
+redis==4.5.4  # https://github.com/redis/redis-py
+hiredis==2.2.2  # https://github.com/redis/hiredis-py
+
+# Django
+# ------------------------------------------------------------------------------
+django==4.1.8  # pyup: < 4.2  # https://www.djangoproject.com/
+django-environ==0.10.0  # https://github.com/joke2k/django-environ
+django-model-utils==4.3.1  # https://github.com/jazzband/django-model-utils
+django-allauth==0.54.0  # https://github.com/pennersr/django-allauth
+django-crispy-forms==2.0  # https://github.com/django-crispy-forms/django-crispy-forms
+crispy-bootstrap5==0.7  # https://github.com/django-crispy-forms/crispy-bootstrap5
+django-compressor==4.3.1  # https://github.com/django-compressor/django-compressor
+django-redis==5.2.0  # https://github.com/jazzband/django-redis
+# Django REST Framework
+djangorestframework==3.14.0  # https://github.com/encode/django-rest-framework
+django-cors-headers==3.14.0  # https://github.com/adamchainz/django-cors-headers
+# DRF-spectacular for api documentation
+drf-spectacular==0.26.2  # https://github.com/tfranzel/drf-spectacular
