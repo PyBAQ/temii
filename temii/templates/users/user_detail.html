@@ -8,8 +8,8 @@
 
   <div class="row">
     <div class="col-sm-12">
-
       <h2>{{ object.username }}</h2>
+      <img class="img-fluid" src="{{ object.image.url }}">
       {% if object.name %}
         <p>{{ object.name }}</p>
       {% endif %}

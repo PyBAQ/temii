@@ -35,11 +35,13 @@ class UserSignupForm(SignupForm):
 
     phone = forms.CharField(max_length=20, label=_("Phone"), required=False)
     bio = forms.CharField(max_length=255, label=_("Bio"), required=False)
+    image = forms.ImageField(label=_("Image"), required=False)
 
     def save(self, request):
         user = super().save(request)
         user.phone = self.cleaned_data["phone"]
         user.bio = self.cleaned_data["bio"]
+        user.image = self.cleaned_data["image"]
         user.save()
         return user
 
