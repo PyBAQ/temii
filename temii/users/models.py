@@ -19,7 +19,7 @@ class User(AbstractUser):
     name = CharField(_("Name of User"), blank=True, max_length=255)
     first_name = None  # type: ignore
     last_name = None  # type: ignore
-    phone = CharField(_("Phone"), blank=True, max_length=20)
+    phone = CharField(_("Phone"), blank=True, max_length=50)
     bio = CharField(_("Bio"), blank=True, max_length=255)
     image = ImageField(_("Image"), default="default.jpg", upload_to=upload_to)
 
