@@ -1,0 +1,26 @@
+{
+  "name": "Selenium Tests",
+  "dockerComposeFile": ["local.yml", "docker-compose.extend.yml"],
+  "service": "workspace",
+  "shutdownAction": "stopCompose",
+  "workspaceFolder": "/workspace/",
+  "forwardPorts": [8000],
+  "onCreateCommand": "pip install -r requirements/local.txt && pre-commit install",
+  "postAttachCommand": "python -m pytest",
+  "remoteEnv": {
+    "DATABASE_URL": "postgres://${containerEnv:POSTGRES_USER}:${containerEnv:POSTGRES_PASSWORD}@${containerEnv:POSTGRES_HOST}:${containerEnv:POSTGRES_PORT}/${containerEnv:POSTGRES_DB}"
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": []
+    },
+    "vscode": {
+      "settings": {
+        "python.testing.pytestArgs": ["tests"],
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestEnabled": true
+      },
+      "extensions": ["ms-python.python"]
+    }
+  }
+}
