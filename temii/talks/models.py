@@ -15,9 +15,12 @@ class Talk(models.Model):
         EN = "en", _("English")
 
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    name = models.CharField(max_length=60)
-    description = models.CharField(max_length=300)
-    level = models.PositiveIntegerField(choices=Level.choices, default=Level.BEGINNER)
-    language = models.CharField(max_length=2, choices=Language.choices, default=Language.ES)
-    timezone = models.CharField(max_length=60)
-    comments = models.CharField(max_length=300)
+    name = models.CharField(_("Name"), max_length=60)
+    description = models.CharField(_("Description"), max_length=300)
+    level = models.PositiveIntegerField(_("Level"), choices=Level.choices, default=Level.BEGINNER)
+    language = models.CharField(_("Language"), max_length=2, choices=Language.choices, default=Language.ES)
+    timezone = models.CharField(_("Timezone"), max_length=60)
+    comments = models.CharField(_("Comments"), max_length=300)
+
+    class Meta:
+        verbose_name = _("Talk")

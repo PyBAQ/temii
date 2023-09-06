@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-11 23:37-0500\n"
-"PO-Revision-Date: 2023-08-12 00:04-0500\n"
+"POT-Creation-Date: 2023-09-05 23:26-0500\n"
+"PO-Revision-Date: 2023-09-05 23:34-0500\n"
 "Last-Translator: Sergio Orozco <scot3004@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -17,6 +17,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
+
+#: temii/talks/apps.py:7
+msgid "Talks"
+msgstr "Charlas"
+
+#: temii/talks/models.py:9
+msgid "Beginner"
+msgstr "Principiante"
+
+#: temii/talks/models.py:10
+msgid "Intermediate"
+msgstr "Intermedio"
+
+#: temii/talks/models.py:11
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: temii/talks/models.py:14
+msgid "Spanish"
+msgstr "Español"
+
+#: temii/talks/models.py:15
+msgid "English"
+msgstr "Inglés"
+
+#: temii/talks/models.py:18
+msgid "Name"
+msgstr "Nombre"
+
+#: temii/talks/models.py:19
+msgid "Description"
+msgstr "Descripción"
+
+#: temii/talks/models.py:20
+msgid "Level"
+msgstr "Nivel"
+
+#: temii/talks/models.py:21
+msgid "Language"
+msgstr "Lenguaje"
+
+#: temii/talks/models.py:22
+msgid "Timezone"
+msgstr "Zona horaria"
+
+#: temii/talks/models.py:23
+msgid "Comments"
+msgstr "Comentarios"
+
+#: temii/talks/models.py:26
+msgid "Talk"
+msgstr "Charla"
 
 #: temii/templates/account/account_inactive.html:5
 #: temii/templates/account/account_inactive.html:8
@@ -218,7 +270,7 @@ msgstr ""
 
 #: temii/templates/account/password_reset_from_key.html:18
 msgid "change password"
-msgstr "Cambiar contraseña"
+msgstr "cambiar contraseña"
 
 #: temii/templates/account/password_reset_from_key.html:21
 #: temii/templates/account/password_reset_from_key_done.html:8
@@ -326,17 +378,17 @@ msgstr "Permisos"
 
 #: temii/users/admin.py:30
 msgid "Important dates"
-msgstr ""
+msgstr "Fechas importantes"
 
 #: temii/users/apps.py:7
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 #: temii/users/forms.py:25 temii/users/tests/test_forms.py:36
 msgid "This username has already been taken."
-msgstr ""
+msgstr "Este nombre de usuario ya ha sido tomado"
 
-#: temii/users/forms.py:38
+#: temii/users/forms.py:38 temii/users/models.py:24
 #: venv/lib/python3.10/site-packages/django/db/models/fields/files.py:393
 msgid "Image"
 msgstr "Imagen"
@@ -344,6 +396,10 @@ msgstr "Imagen"
 #: temii/users/models.py:19
 msgid "Name of User"
 msgstr "Nombre"
+
+#: temii/users/models.py:36
+msgid "User"
+msgstr "Usuario"
 
 #: temii/users/views.py:23
 msgid "Information successfully updated"
