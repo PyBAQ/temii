@@ -1,6 +1,6 @@
 ---
 name: Pregunta
-about: Si tienes dudas comunicate con nosotros a través de meetup o discord 
+about: Si tienes dudas comunicate con nosotros a traves de meetup o discord 
 ---
 
 # Preguntas, inquietudes
