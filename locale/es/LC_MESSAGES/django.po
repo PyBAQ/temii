@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-06 00:00-0500\n"
+"POT-Creation-Date: 2023-10-07 12:27-0500\n"
 "PO-Revision-Date: 2023-09-05 23:34-0500\n"
 "Last-Translator: Sergio Orozco <scot3004@gmail.com>\n"
 "Language-Team: \n"
@@ -43,30 +43,46 @@ msgid "English"
 msgstr "Inglés"
 
 #: temii/talks/models.py:18
+msgid "On site"
+msgstr "En sitio"
+
+#: temii/talks/models.py:19
+msgid "Virtual"
+msgstr "Virtual"
+
+#: temii/talks/models.py:22
 msgid "Name"
 msgstr "Nombre"
 
-#: temii/talks/models.py:19
+#: temii/talks/models.py:23
 msgid "Description"
 msgstr "Descripción"
 
-#: temii/talks/models.py:20
+#: temii/talks/models.py:24
 msgid "Level"
 msgstr "Nivel"
 
-#: temii/talks/models.py:21
+#: temii/talks/models.py:25
 msgid "Language"
 msgstr "Lenguaje"
 
-#: temii/talks/models.py:22
+#: temii/talks/models.py:26
 msgid "Timezone"
 msgstr "Zona horaria"
 
-#: temii/talks/models.py:23
+#: temii/talks/models.py:27
 msgid "Comments"
 msgstr "Comentarios"
 
-#: temii/talks/models.py:26
+#: temii/talks/models.py:28
+msgid "Precense"
+msgstr "Presencialidad"
+
+#: temii/talks/models.py:29
+msgid "Months"
+msgstr "Meses"
+
+#: temii/talks/models.py:32
 msgid "Talk"
 msgstr "Charla"
 
@@ -345,21 +361,21 @@ msgstr ""
 msgid "My Profile"
 msgstr "Mi perfil"
 
-#: temii/templates/users/user_detail.html:17 temii/users/forms.py:37
+#: temii/templates/users/user_detail.html:19 temii/users/forms.py:37
 #: temii/users/models.py:23
 msgid "Bio"
 msgstr "Biografia"
 
-#: temii/templates/users/user_detail.html:20 temii/users/forms.py:36
+#: temii/templates/users/user_detail.html:22 temii/users/forms.py:36
 #: temii/users/models.py:22
 msgid "Phone"
 msgstr "Telefono"
 
-#: temii/templates/users/user_detail.html:30
+#: temii/templates/users/user_detail.html:32
 msgid "Update"
 msgstr "Actualizar"
 
-#: temii/templates/users/user_detail.html:31
+#: temii/templates/users/user_detail.html:33
 msgid "E-Mail"
 msgstr "Coreo electrónico"
 

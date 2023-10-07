@@ -12,6 +12,8 @@ class TalkFactory(DjangoModelFactory):
     language = Iterator(["es", "en"])
     level = Iterator([1, 2, 3])
     comments = Faker("text")
+    precense = Iterator([1, 2])
+    months = Faker("text", max_nb_chars=100)
 
     class Meta:
         model = Talk
