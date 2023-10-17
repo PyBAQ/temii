@@ -25,7 +25,7 @@ Para ejecutar docker compose localmente toca especificarle que use el archivo lo
 - Para crear un **usuario normal**, ve a Sign Up y llena los campos del formulario, luego veras la página para confirmar el email, ve a la consola para ver un mensaje de correo simulado, copia el link en tu navegador web. Ahora el correo del usuario estará verificado y listo para usar.
 
 - Para crear una **cuenta de superadministrador**, usa el comando:
-  ```docker
+  ```bash
   docker compose -f local.yml run --rm django python manage.py shell_plus
 
   python manage.py createsuperuser
