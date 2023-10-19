@@ -26,7 +26,11 @@ Para ejecutar docker compose localmente toca especificarle que use el archivo lo
 
 - Para crear una **cuenta de superadministrador**, usa el comando:
 
-  python manage.py createsuperuser
+```bash
+docker compose -f local.yml run --rm django python manage.py shell_plus
+
+python manage.py createsuperuser
+```
 
 Por conveniencia, puedes abrir el usuario normal en un navegador, y el super-administrador en otro y ver los comportamientos para cada tipo de usuario.
 
@@ -35,6 +39,18 @@ Por conveniencia, puedes abrir el usuario normal en un navegador, y el super-adm
 Puedes correr los checks de tipos de datos con el comando
 
     mypy temii
+
+### Debugging con ipdb
+
+Levanta los contenedores de forma _detached_, detén el de django y luego habilita el puerto donde corre. De la siguiente manera:
+
+```bash
+docker compose -f local.yml up -d
+docker compose -f local.yml down django
+docker compose -f local.yml run --rm --service-ports django
+```
+
+De esta forma podrás usar `import ipdb; ipdb.set_trace()` en tu código de Python sin problemas.
 
 ### Cobertura de pruebas
 
