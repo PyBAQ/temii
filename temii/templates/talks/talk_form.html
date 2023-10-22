@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}Create Talk{% endblock %}
+
+{% block content %}
+
+<h2>Proponer una charla</h2>
+
+<p>Aquí puedes proponer una futura charla. </p>
+<p>Si deseas hacer más de una propuesta debes diligenciar nuevamente el formulario.</p>
+
+<form class="form-horizontal" method="post" action="{% url 'talks:create' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+      </div>
+    </div>
+  </form>
+
+{% endblock content %}

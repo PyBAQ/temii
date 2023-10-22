@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Thanks for your proposal{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+	    <div class="col-sm-12">
+	    	<h2>Muchas gracias por tu propuesta</h2>
+	    	<p>
+	    		Tu aporte contribuye enormemente a la comunidad.
+	    	</p>
+	    	<p>
+	    		Si deseas, puedes <a href="{% url 'talks:create' %}">volver a proponer otra charla.</a>
+	    	</p>
+	    </div>
+    </div>
+</div>
+{% endblock content %}
