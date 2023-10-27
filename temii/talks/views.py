@@ -14,6 +14,7 @@ class TalkCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy("talks:thanks")
 
     def form_valid(self, form):
+        # Se agrega el usuario que hace la petición al formulario
         form.instance.user = self.request.user
         return super().form_valid(form)
 
