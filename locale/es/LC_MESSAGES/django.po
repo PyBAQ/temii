@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-07 12:27-0500\n"
+"POT-Creation-Date: 2023-10-27 18:39-0500\n"
 "PO-Revision-Date: 2023-09-05 23:34-0500\n"
 "Last-Translator: Sergio Orozco <scot3004@gmail.com>\n"
 "Language-Team: \n"
@@ -17,6 +17,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
+
+#: htmlcov/d_afce42a2cf3d92da_base_html.html:140 temii/templates/base.html:58
+msgid "Admin"
+msgstr "Administrador"
+
+#: htmlcov/d_afce42a2cf3d92da_base_html.html:148 temii/templates/base.html:66
+msgid "My Profile"
+msgstr "Mi perfil"
+
+#: htmlcov/d_afce42a2cf3d92da_base_html.html:155
+#: temii/templates/account/logout.html:5 temii/templates/account/logout.html:8
+#: temii/templates/account/logout.html:17 temii/templates/base.html:73
+msgid "Sign Out"
+msgstr "Salir"
+
+#: htmlcov/d_afce42a2cf3d92da_base_html.html:161
+#: temii/templates/account/signup.html:9 temii/templates/account/signup.html:19
+#: temii/templates/base.html:79
+msgid "Sign Up"
+msgstr "Inscribirse"
+
+#: htmlcov/d_afce42a2cf3d92da_base_html.html:166
+#: temii/templates/account/login.html:7 temii/templates/account/login.html:11
+#: temii/templates/account/login.html:56 temii/templates/base.html:84
+msgid "Sign In"
+msgstr "Iniciar sesión"
 
 #: temii/talks/apps.py:7
 msgid "Talks"
@@ -66,23 +92,35 @@ msgstr "Nivel"
 msgid "Language"
 msgstr "Lenguaje"
 
-#: temii/talks/models.py:26
+#: temii/talks/models.py:27
 msgid "Timezone"
 msgstr "Zona horaria"
 
-#: temii/talks/models.py:27
+#: temii/talks/models.py:30
+msgid ""
+"Timezone of the place you are located. E.g., Colombia (UTC-5), Argentina or "
+"Chile (UTC-3), Mexico (UTC-6), etc."
+msgstr ""
+
+#: temii/talks/models.py:34
 msgid "Comments"
 msgstr "Comentarios"
 
-#: temii/talks/models.py:28
+#: temii/talks/models.py:35
 msgid "Precense"
 msgstr "Presencialidad"
 
-#: temii/talks/models.py:29
+#: temii/talks/models.py:37
 msgid "Months"
 msgstr "Meses"
 
-#: temii/talks/models.py:32
+#: temii/talks/models.py:41
+msgid ""
+"Please write your time availability in months.The more specific, the better. "
+"E.g., October and November, any day after 6pm."
+msgstr ""
+
+#: temii/talks/models.py:47
 msgid "Talk"
 msgstr "Charla"
 
@@ -178,17 +216,12 @@ msgstr "Confirmar"
 #: temii/templates/account/email_confirm.html:27
 #, python-format
 msgid ""
-"This e-mail confirmation link expired or is invalid. Please <a "
-"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
 msgstr ""
 "Este enlace de confirmación de correo electrónico expiro o es invalido. Por "
 "favor <a href=\"%(email_url)s\">solicite una nueva confirmación de correo "
 "electrónico</a>."
-
-#: temii/templates/account/login.html:7 temii/templates/account/login.html:11
-#: temii/templates/account/login.html:56 temii/templates/base.html:76
-msgid "Sign In"
-msgstr "Iniciar sesión"
 
 #: temii/templates/account/login.html:17
 msgid "Please sign in with one of your existing third party accounts:"
@@ -211,20 +244,15 @@ msgstr "o"
 #: temii/templates/account/login.html:41
 #, python-format
 msgid ""
-"If you have not created an account yet, then please <a "
-"href=\"%(signup_url)s\">sign up</a> first."
+"If you have not created an account yet, then please <a href=\"%(signup_url)s"
+"\">sign up</a> first."
 msgstr ""
-"Si no has creado tu cuenta aún, por favor <a "
-"href=\"%(signup_url)s\">registrate</a>."
+"Si no has creado tu cuenta aún, por favor <a href=\"%(signup_url)s"
+"\">registrate</a>."
 
 #: temii/templates/account/login.html:55
 msgid "Forgot Password?"
 msgstr "Olvido su contraseña?"
-
-#: temii/templates/account/logout.html:5 temii/templates/account/logout.html:8
-#: temii/templates/account/logout.html:17 temii/templates/base.html:65
-msgid "Sign Out"
-msgstr "Salir"
 
 #: temii/templates/account/logout.html:10
 msgid "Are you sure you want to sign out?"
@@ -302,11 +330,6 @@ msgstr ""
 msgid "Signup"
 msgstr ""
 
-#: temii/templates/account/signup.html:9 temii/templates/account/signup.html:19
-#: temii/templates/base.html:71
-msgid "Sign Up"
-msgstr ""
-
 #: temii/templates/account/signup.html:11
 #, python-format
 msgid ""
@@ -357,9 +380,48 @@ msgid ""
 "mail address</a>."
 msgstr ""
 
-#: temii/templates/base.html:61
-msgid "My Profile"
-msgstr "Mi perfil"
+#: temii/templates/base.html:62
+msgid "About"
+msgstr ""
+
+#: temii/templates/base.html:69 temii/templates/talks/talk_form.html:8
+msgid "Propose a talk"
+msgstr "Proponer una charla"
+
+#: temii/templates/talks/talk_form.html:4
+msgid "Create Talk"
+msgstr "Crear una charla"
+
+#: temii/templates/talks/talk_form.html:10
+msgid "Here you can propose a future talk"
+msgstr "Aquí puedes proponer una futura charla"
+
+#: temii/templates/talks/talk_form.html:11
+msgid ""
+"If you wish to make more than one proposal, you must fill out the form again"
+msgstr "Si deseas hacer más de una propuesta debes diligenciar nuevamente el formulario"
+
+#: temii/templates/talks/talk_form.html:18
+#: temii/templates/users/user_form.html:13
+msgid "Save"
+msgstr "Guardar"
+
+#: temii/templates/talks/talk_thanks.html:4
+#: temii/templates/talks/talk_thanks.html:11
+msgid "Thanks for your proposal"
+msgstr "Gracias por tu propuesta"
+
+#: temii/templates/talks/talk_thanks.html:13
+msgid "Your contribution greatly contributes to the community"
+msgstr "Tu aporte contribuye enormemente a la comunidad"
+
+#: temii/templates/talks/talk_thanks.html:16
+msgid "If you wish, you can"
+msgstr "Si deseas, puedes"
+
+#: temii/templates/talks/talk_thanks.html:17
+msgid "propose another talk again"
+msgstr "volver a proponer otra charla"
 
 #: temii/templates/users/user_detail.html:19 temii/users/forms.py:37
 #: temii/users/models.py:23
@@ -378,10 +440,6 @@ msgstr "Actualizar"
 #: temii/templates/users/user_detail.html:33
 msgid "E-Mail"
 msgstr "Coreo electrónico"
-
-#: temii/templates/users/user_form.html:13
-msgid "Save"
-msgstr "Guardar"
 
 #: temii/users/admin.py:17
 msgid "Personal info"

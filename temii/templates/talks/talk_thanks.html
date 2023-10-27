@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}Thanks for your proposal{% endblock %}
+{% block title %}{% translate "Thanks for your proposal" %}{% endblock %}
 
 {% block content %}
 
 <div class="container">
-	<div class="row">
-	    <div class="col-sm-12">
-	    	<h2>Muchas gracias por tu propuesta</h2>
-	    	<p>
-	    		Tu aporte contribuye enormemente a la comunidad.
-	    	</p>
-	    	<p>
-	    		Si deseas, puedes <a href="{% url 'talks:create' %}">volver a proponer otra charla.</a>
-	    	</p>
-	    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>{% translate "Thanks for your proposal" %}</h2>
+            <p>
+                {% translate "Your contribution greatly contributes to the community" %}.
+            </p>
+            <p>
+                {% translate "If you wish, you can" %}
+                <a href="{% url 'talks:create' %}">{% translate "propose another talk again" %}.</a>
+            </p>
+        </div>
     </div>
 </div>
 {% endblock content %}
