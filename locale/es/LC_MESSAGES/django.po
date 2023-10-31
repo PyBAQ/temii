@@ -100,7 +100,8 @@ msgstr "Zona horaria"
 msgid ""
 "Timezone of the place you are located. E.g., Colombia (UTC-5), Argentina or "
 "Chile (UTC-3), Mexico (UTC-6), etc."
-msgstr ""
+msgstr "ona horaria del lugar donde se encuentra. Por ejemplo,"
+"Colombia (UTC-5), Argentina o Chile (UTC-3), México (UTC-6), etc."
 
 #: temii/talks/models.py:34
 msgid "Comments"
@@ -118,7 +119,8 @@ msgstr "Meses"
 msgid ""
 "Please write your time availability in months.The more specific, the better. "
 "E.g., October and November, any day after 6pm."
-msgstr ""
+msgstr "Por favor escribe tu disponibilidad de tiempo en meses. Cuanto más específico, mejor."
+"Por ejemplo, octubre y noviembre, cualquier día después de las 6 p.m."
 
 #: temii/talks/models.py:47
 msgid "Talk"
