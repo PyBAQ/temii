@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{% block title %}{% translate "Create Talk" %}{% endblock %}
+
+{% block content %}
+
+<h2>{% translate "Propose a talk" %}</h2>
+
+<p>{% translate "Here you can propose a future talk" %}.</p>
+<p>{% translate "If you wish to make more than one proposal, you must fill out the form again" %}.</p>
+
+<form class="form-horizontal" method="post" action="{% url 'talks:create' %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary">{% translate "Save" %}</button>
+      </div>
+    </div>
+  </form>
+
+{% endblock content %}

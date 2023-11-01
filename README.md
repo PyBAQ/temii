@@ -56,8 +56,8 @@ De esta forma podrás usar `import ipdb; ipdb.set_trace()` en tu código de Pyth
 
 Para ejecutar los tests, verificar el coverage y generar un reporte de coverage en HTML:
 
-    coverage run -m pytest
-    coverage html
+    docker compose -f local.yml run --rm django coverage run -m pytest
+    docker compose -f local.yml run --rm django coverage html
     open htmlcov/index.html
 
 #### Ejecutar los test usando pytest
