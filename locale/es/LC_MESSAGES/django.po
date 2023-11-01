@@ -100,7 +100,7 @@ msgstr "Zona horaria"
 msgid ""
 "Timezone of the place you are located. E.g., Colombia (UTC-5), Argentina or "
 "Chile (UTC-3), Mexico (UTC-6), etc."
-msgstr "ona horaria del lugar donde se encuentra. Por ejemplo,"
+msgstr "Zona horaria del lugar donde se encuentra. Por ejemplo,"
 "Colombia (UTC-5), Argentina o Chile (UTC-3), México (UTC-6), etc."
 
 #: temii/talks/models.py:34
