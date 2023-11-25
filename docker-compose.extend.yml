@@ -1,0 +1,12 @@
+version: '3'
+services:
+  workspace:
+    image: mcr.microsoft.com/vscode/devcontainers/python:3.11
+    volumes:
+      # Mounts the project folder to '/workspace'. While this file is in .devcontainer,
+      # mounts are relative to the first file in the list, which is a level up.
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
